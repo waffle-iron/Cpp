@@ -26,7 +26,6 @@ double func(int* arr, int length)
 	return 0;
 }
 
-
 double func(double* arr, int length)
 {
 	double sum = 0;
