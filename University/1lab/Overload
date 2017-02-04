@@ -5,9 +5,9 @@ double func(double* arr, int length);
 
 int main(void)
 {
-	double arr1[] = { -2,4,6,8,9,5,3};
-	double arr2[] = { 2.3,4.1,4.6};
-	printf("Function with int is:%0.1f\n",func(arr1,7));
+	static double arr1[] = { -2,4,6,8,9,5,3 };
+	auto double arr2[] = { 2.3,4.1,4.6 };
+	printf("Function with int is:%0.1f\n", func(arr1, 7));
 	printf("Function with double is:%0.1f\n", func(arr2, 3));
 	return 0;
 }
@@ -22,8 +22,8 @@ double func(int* arr, int length)
 		result = sum / length;
 	}
 	return result;
-	if(length <= 0)
-	return 0;
+	if (length <= 0)
+		return 0;
 }
 
 double func(double* arr, int length)
