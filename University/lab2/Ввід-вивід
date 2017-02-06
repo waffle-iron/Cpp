@@ -1,5 +1,9 @@
-// З клавіатури вводиться ім’я компанії та рік її заснування і записуються у файл
-
+/* З клавіатури вводиться номер поїзда, назва сполучення, 
+час відправлення з початкової станції і час прибуття на 
+кінцеву, а у файл записується номер поїзда,назва сполучення,
+час відправлення з початкової станції і час прибуття на кінцеву
+та час у дорозі.
+*/
 #include<iostream> 
 #include<fstream> 
 #include<string> 
@@ -20,7 +24,7 @@ int main()
 
 		if (choice == 1)
 		{
-			string numbTrain;  // Номер поїзда
+			int numbTrain;  // Номер поїзда
 			string namePlatf;  // Ім'я платформи
 			int depertureTime; // Час відправлення
 			int arrivalTime;  // Час прибуття
@@ -31,50 +35,58 @@ int main()
 				cout << "Cannot open file" << endl;
 				return -1;
 			}
-			cout << setw(9) << "Number train" << setw(9) << "number platforms" << 
-				setw(9) << "depertureTime" <<setw(9) << "arrival time" << endl; 
+			//Друкуємо шапку з відступом
+			cout << setw(20) << "Number train" << setw(20) << "number platforms" 
+			<< setw(20) << "deperture time" <<setw(20) << "arrival time" << endl; 
 			while (!infile.eof())
 			{
-				infile >> numbTrain;
-				infile >> namePlatf;
-				infile >> depertureTime;
-				infile >> arrivalTime;
-				if (!infile.eof())
+				infile >> numbTrain;    //Виводимо numbTrain
+				infile >> namePlatf;	//Виводимо namePlatf
+				infile >> depertureTime;//Виводимо depertureTime
+				infile >> arrivalTime;  //Виводимо arrivalTime
+				if (!infile.eof())     //Виводити доки не завершиться інформація
 				{
-					cout.width(9);
-					cout << numbTrain;
-					cout.width(9);
+					cout.width(20);   // Ширина між кожним надписом
+					cout << numbTrain; //Виводиться numbTrain і тд.
+					cout.width(20);
 					cout << namePlatf;
-					cout.width(9);
+					cout.width(20);
 					cout << depertureTime;
-					cout.width(9);
+					cout.width(20);
 					cout << arrivalTime;
 					cout << endl;
 				}
 			}
-			infile.close();
+			infile.close();  // Закриття роботи з файлом
 		}
 		if (choice == 2)
 		{
-			string numbTrain;  // Номер поїзда
+			int numbTrain;  // Номер поїзда
 			string namePlatf;  // Ім'я платформи
 			int depertureTime; // Час відправлення
 			int arrivalTime;  // Час прибуття
+
+	    // Ввід з клавіатури інформацію
+			cin >> numbTrain;  
+			cin >> namePlatf;
+			cin >> depertureTime;
+			cin >> arrivalTime;
 	
-			fstream outfile("File.txt", ios::app); //Відкриваю файл для додавання в кінець
+			fstream outfile("File.txt", ios::app); //Відкриваю файл для додавання в кінець тексту
 			if (!outfile)							// Якщо файл відсутній - вивести помилку
 			{
 				cout << "Cannot open file" << endl;
 				return -1;
 			}
-			outfile.setf(ios::left); 
-			outfile.width(9);
-			outfile << numbTrain << ' ';
-			outfile.width(9);
+			outfile.setf(ios::left);  //Вивід файлу з вирівненням по лівому краю поля
+			//відступ.заповнення графіку 
+			outfile.width(20);		
+			outfile << numbTrain << ' '; 
+			outfile.width(20);
 			outfile << namePlatf << ' ';
-			outfile.width(9);
+			outfile.width(20);
 			outfile << depertureTime << ' ';
-			outfile.width(9);
+			outfile.width(20);
 			outfile <<arrivalTime << endl;
 			outfile.close();
 		}
@@ -84,4 +96,5 @@ int main()
 		}
 	}
 	system("pause");
-}
+} 
+
