@@ -1,0 +1,87 @@
+// З клавіатури вводиться ім’я компанії та рік її заснування і записуються у файл
+
+#include<iostream> 
+#include<fstream> 
+#include<string> 
+#include<iomanip> 
+using namespace std;
+
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	while (true)
+	{
+		cout << "Show data – press 1" << endl;
+		cout << "Write data - press 2" << endl;
+		cout << "Exit – press 3" << endl;
+
+		int choice;
+		cin >> choice;
+
+		if (choice == 1)
+		{
+			string numbTrain;  // Номер поїзда
+			string namePlatf;  // Ім'я платформи
+			int depertureTime; // Час відправлення
+			int arrivalTime;  // Час прибуття
+			ifstream infile; // Відкриваю файл 
+			infile.open("File.txt"); // Читаю з нього
+			if (!infile)     // Якщо нема такого - вивести помилку
+			{
+				cout << "Cannot open file" << endl;
+				return -1;
+			}
+			cout << setw(9) << "Number train" << setw(9) << "number platforms" << 
+				setw(9) << "depertureTime" <<setw(9) << "arrival time" << endl; 
+			while (!infile.eof())
+			{
+				infile >> numbTrain;
+				infile >> namePlatf;
+				infile >> depertureTime;
+				infile >> arrivalTime;
+				if (!infile.eof())
+				{
+					cout.width(9);
+					cout << numbTrain;
+					cout.width(9);
+					cout << namePlatf;
+					cout.width(9);
+					cout << depertureTime;
+					cout.width(9);
+					cout << arrivalTime;
+					cout << endl;
+				}
+			}
+			infile.close();
+		}
+		if (choice == 2)
+		{
+			string numbTrain;  // Номер поїзда
+			string namePlatf;  // Ім'я платформи
+			int depertureTime; // Час відправлення
+			int arrivalTime;  // Час прибуття
+	
+			fstream outfile("File.txt", ios::app); //Відкриваю файл для додавання в кінець
+			if (!outfile)							// Якщо файл відсутній - вивести помилку
+			{
+				cout << "Cannot open file" << endl;
+				return -1;
+			}
+			outfile.setf(ios::left); 
+			outfile.width(9);
+			outfile << numbTrain << ' ';
+			outfile.width(9);
+			outfile << namePlatf << ' ';
+			outfile.width(9);
+			outfile << depertureTime << ' ';
+			outfile.width(9);
+			outfile <<arrivalTime << endl;
+			outfile.close();
+		}
+		if (choice == 3)
+		{
+			break;
+		}
+	}
+	system("pause");
+}
