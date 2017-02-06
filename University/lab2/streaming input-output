@@ -1,19 +1,23 @@
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <iomanip>
+// З клавіатури вводиться ім’я компанії та рік її заснування і записуються у файл
+
+#include<iostream> 
+#include<fstream> 
+#include<string> 
+#include<iomanip> 
 using namespace std;
 
 int main()
 {
+	setlocale(LC_ALL, "Russian");
 	while (true)
 	{
-		cout << "Show data - press 1" << endl;
+		cout << "Show data – press 1" << endl;
 		cout << "Write data - press 2" << endl;
-		cout << "Exit - press 3" << endl;
-
+		cout << "Exit – press 3" << endl;
+		
 		int choice;
 		cin >> choice;
+
 		if (choice == 1)
 		{
 			string company;
@@ -25,51 +29,44 @@ int main()
 				cout << "Cannot open file" << endl;
 				return -1;
 			}
-
-			cout << setw(9) << "Company" << setw(9) << "Year" << endl;
-			while (!infile.eof())
+			cout << setw(9) << "Company" << setw(9) << "Year" << endl; while (!infile.eof())
 			{
 				infile >> company;
 				infile >> year;
 				if (!infile.eof())
 				{
-					infile >> company;
-					infile >> year;
-					if (!infile.eof())
-					{
-						cout.width(9);
-						cout << company;
-						cout.width(9);
-						cout << year;
-						cout << endl;
-					}
+					cout.width(9);
+					cout << company;
+					cout.width(9);
+					cout << year;
+					cout << endl;
 				}
-				infile.close();
 			}
+			infile.close();
 		}
-			if (choice == 2)
+		if (choice == 2)
+		{
+			string company;
+			int year;
+			cin >> company;
+			cin >> year;
+			fstream outfile("File.txt", ios::app);
+			if (!outfile)
 			{
-				string company;
-				int year;
-				cin >> company;
-				cin >> year;
-				fstream outfile("File.txt", ios::app);
-				if (!outfile)
-				{
-					cout << "Cannot open file" << endl;
-					return -1;
-				}
-				outfile.setf(ios::left);
-				outfile.width(9);
-				outfile << company << ' ';
-				outfile.width(9);
-				outfile << year << endl;
-				outfile.close();
+				cout << "Cannot open file" << endl;
+				return -1;
 			}
-			if (choice == 3)
-			{
-				break;
-			}
+			outfile.setf(ios::left);
+			outfile.width(9);
+			outfile << company << ' ';
+			outfile.width(9);
+			outfile << year << endl;
+			outfile.close();
 		}
-		system("pause");
+		if (choice == 3)
+		{
+			break;
+		}
+	}
+	system("pause");
 }
