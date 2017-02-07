@@ -13,8 +13,11 @@ using namespace std;
 
 int main()
 {
-	struct tm  depertureTime;
-	struct tm  arrivalTime;
+	int numbTrain;  // Номер поїзда
+	string namePlatf;  // сполучення
+	struct tm  depertureTime;// Час відправлення
+	struct tm  arrivalTime; // Час прибуття
+	
 	setlocale(LC_ALL, "Russian");
 	while (true)
 	{
@@ -27,10 +30,6 @@ int main()
 
 		if (choice == 1)
 		{
-			int numbTrain;  // Номер поїзда
-			string namePlatf;  // Ім'я платформи
-			//int depertureTime; // Час відправлення
-			//int arrivalTime;  // Час прибуття
 			ifstream infile; // Відкриваю файл 
 			infile.open("File.txt"); // Читаю з нього
 			if (!infile)     // Якщо нема такого - вивести помилку
@@ -39,14 +38,16 @@ int main()
 				return -1;
 			}
 			//Друкуємо шапку з відступом
-			cout << setw(20) << "Number train" << setw(20) << "number platforms"
-				<< setw(20) << "deperture time" << setw(17) << "arrival time" << endl;
+			cout << setw(20) << "Number train" << setw(20) << "Stantion - Stantion"
+				<< setw(20) << "Deperture time" << setw(17) << "Arrival time"
+				<< setw(20) <<"In a way"<< endl;
 			while (!infile.eof())
 			{
 				infile >> numbTrain;    //Виводимо numbTrain
 				infile >> namePlatf;	//Виводимо namePlatf
 				infile >> get_time(&depertureTime, "%R");//Виводимо depertureTime
 				infile >> get_time(&arrivalTime, "%R");  //Виводимо arrivalTime
+				
 				if (!infile.eof())     //Виводити доки не завершиться інформація
 				{
 						cout.width(20);   // Ширина між кожним надписом
@@ -57,6 +58,9 @@ int main()
 						cout << depertureTime.tm_hour <<":" << depertureTime.tm_min;
 						cout.width(15);
 						cout << arrivalTime.tm_hour << ":" << arrivalTime.tm_min;
+						cout.width(15);
+						cout <<  arrivalTime.tm_hour - depertureTime.tm_hour
+							<< "  Hour  " << arrivalTime.tm_min - depertureTime.tm_min <<"  Min  " ;
 						cout << endl;
 					}
 				}
@@ -64,17 +68,14 @@ int main()
 		}
 		if (choice == 2)
 		{
-			int numbTrain;  // Номер поїзда
-			string namePlatf;  // Ім'я платформи
-			//int depertureTime; // Час відправлення
-			//int arrivalTime;  // Час прибуття
-			struct tm depertureTime;
-			struct tm arrivalTime;
-
 			// Ввід з клавіатури інформацію
+			cout << "Введите номер поезда:" << endl;
 			cin >> numbTrain;
+			cout << "Введите направление поезда:" << endl;
 			cin >> namePlatf;
+			cout << "время отправления:" << endl;
 			cin >> get_time(&depertureTime, "%R");
+			cout << "время прибытия:" << endl;
 			cin >> get_time(&arrivalTime, "%R");
 			if (std::cin.fail()) std::cout << "Error reading time\n";
 			else {
@@ -85,7 +86,7 @@ int main()
 					return -1;
 				}
 				outfile.setf(ios::left);  //Вивід файлу з вирівненням по лівому краю поля
-										  //відступ.заповнення графіку 
+			 //відступ.заповнення графіку 
 				outfile.width(20);
 				outfile << numbTrain << ' ';
 				outfile.width(20);
