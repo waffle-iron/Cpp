@@ -1,5 +1,5 @@
-/* З клавіатури вводиться номер поїзда, назва сполучення, 
-час відправлення з початкової станції і час прибуття на 
+/* З клавіатури вводиться номер поїзда, назва сполучення,
+час відправлення з початкової станції і час прибуття на
 кінцеву, а у файл записується номер поїзда,назва сполучення,
 час відправлення з початкової станції і час прибуття на кінцеву
 та час у дорозі.
@@ -8,10 +8,13 @@
 #include<fstream> 
 #include<string> 
 #include<iomanip> 
+#include<ctime>
 using namespace std;
 
 int main()
 {
+	struct tm  depertureTime;
+	struct tm  arrivalTime;
 	setlocale(LC_ALL, "Russian");
 	while (true)
 	{
@@ -26,8 +29,8 @@ int main()
 		{
 			int numbTrain;  // Номер поїзда
 			string namePlatf;  // Ім'я платформи
-			int depertureTime; // Час відправлення
-			int arrivalTime;  // Час прибуття
+			//int depertureTime; // Час відправлення
+			//int arrivalTime;  // Час прибуття
 			ifstream infile; // Відкриваю файл 
 			infile.open("File.txt"); // Читаю з нього
 			if (!infile)     // Якщо нема такого - вивести помилку
@@ -36,65 +39,68 @@ int main()
 				return -1;
 			}
 			//Друкуємо шапку з відступом
-			cout << setw(20) << "Number train" << setw(20) << "number platforms" 
-			<< setw(20) << "deperture time" <<setw(20) << "arrival time" << endl; 
+			cout << setw(20) << "Number train" << setw(20) << "number platforms"
+				<< setw(20) << "deperture time" << setw(17) << "arrival time" << endl;
 			while (!infile.eof())
 			{
 				infile >> numbTrain;    //Виводимо numbTrain
 				infile >> namePlatf;	//Виводимо namePlatf
-				infile >> depertureTime;//Виводимо depertureTime
-				infile >> arrivalTime;  //Виводимо arrivalTime
+				infile >> get_time(&depertureTime, "%R");//Виводимо depertureTime
+				infile >> get_time(&arrivalTime, "%R");  //Виводимо arrivalTime
 				if (!infile.eof())     //Виводити доки не завершиться інформація
 				{
-					cout.width(20);   // Ширина між кожним надписом
-					cout << numbTrain; //Виводиться numbTrain і тд.
-					cout.width(20);
-					cout << namePlatf;
-					cout.width(20);
-					cout << depertureTime;
-					cout.width(20);
-					cout << arrivalTime;
-					cout << endl;
+						cout.width(20);   // Ширина між кожним надписом
+						cout << numbTrain; //Виводиться numbTrain і тд.
+						cout.width(20);
+						cout << namePlatf;
+						cout.width(13);
+						cout << depertureTime.tm_hour <<":" << depertureTime.tm_min;
+						cout.width(15);
+						cout << arrivalTime.tm_hour << ":" << arrivalTime.tm_min;
+						cout << endl;
+					}
 				}
-			}
-			infile.close();  // Закриття роботи з файлом
+				infile.close();  // Закриття роботи з файлом
 		}
 		if (choice == 2)
 		{
 			int numbTrain;  // Номер поїзда
 			string namePlatf;  // Ім'я платформи
-			int depertureTime; // Час відправлення
-			int arrivalTime;  // Час прибуття
+			//int depertureTime; // Час відправлення
+			//int arrivalTime;  // Час прибуття
+			struct tm depertureTime;
+			struct tm arrivalTime;
 
-	    // Ввід з клавіатури інформацію
-			cin >> numbTrain;  
+			// Ввід з клавіатури інформацію
+			cin >> numbTrain;
 			cin >> namePlatf;
-			cin >> depertureTime;
-			cin >> arrivalTime;
-	
-			fstream outfile("File.txt", ios::app); //Відкриваю файл для додавання в кінець тексту
-			if (!outfile)							// Якщо файл відсутній - вивести помилку
-			{
-				cout << "Cannot open file" << endl;
-				return -1;
+			cin >> get_time(&depertureTime, "%R");
+			cin >> get_time(&arrivalTime, "%R");
+			if (std::cin.fail()) std::cout << "Error reading time\n";
+			else {
+				fstream outfile("File.txt", ios::app); //Відкриваю файл для додавання в кінець тексту
+				if (!outfile)							// Якщо файл відсутній - вивести помилку
+				{
+					cout << "Cannot open file" << endl;
+					return -1;
+				}
+				outfile.setf(ios::left);  //Вивід файлу з вирівненням по лівому краю поля
+										  //відступ.заповнення графіку 
+				outfile.width(20);
+				outfile << numbTrain << ' ';
+				outfile.width(20);
+				outfile << namePlatf << ' ';
+				outfile.width(5);
+				outfile << depertureTime.tm_hour <<":"<< depertureTime.tm_min << ' ';
+				outfile.width(5);
+				outfile << arrivalTime.tm_hour << ":" << arrivalTime.tm_min << endl;
+				outfile.close();
 			}
-			outfile.setf(ios::left);  //Вивід файлу з вирівненням по лівому краю поля
-			//відступ.заповнення графіку 
-			outfile.width(20);		
-			outfile << numbTrain << ' '; 
-			outfile.width(20);
-			outfile << namePlatf << ' ';
-			outfile.width(20);
-			outfile << depertureTime << ' ';
-			outfile.width(20);
-			outfile <<arrivalTime << endl;
-			outfile.close();
 		}
 		if (choice == 3)
 		{
 			break;
 		}
 	}
-	system("pause");
-} 
-
+}
+ 
