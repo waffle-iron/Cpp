@@ -1,0 +1,64 @@
+#include <iostream>
+
+using namespace std;
+
+class CMine // имя класса
+{
+private: // спецификатор доступа private
+	int depth; // глибина
+	int	volume; // об'єм
+	int	resource; // запаси шахти
+	int	number;		// к - сть шахтарнів 
+	int productivity;//Продуктивність одного шахтаря
+public: // спецификатор доступа public
+
+	CMine(int d, int v, int r, int n, int p)
+	{
+		// Присвоюємо нашим елементам класу значення параметрів
+		depth = d;
+		volume = v;
+		resource = r;
+		number = n;
+		productivity = p;
+	}
+	void setCMine()
+	{
+		cout << " Enter depth:";
+		cin >> depth;
+		cout << "\n Enter volume:";
+		cin >> volume;
+		cout << "\n Enter resource:";
+		cin >> resource;
+		cout << "\n Enter number:";
+		cin >> number;
+		cout << "\n Enter productivity:";
+		cin >> productivity;
+	}
+
+	void getCMine()
+	{
+		cout << "Depth = " << depth << endl;
+		cout << "Volume = " << volume << endl;
+		cout << "Resource = " << resource << endl;
+		cout << "Number = " << number << endl;
+		cout << "Productivity = " << productivity << endl;
+	}
+} obj,obj2; // конец объявления класса + об'єкт
+
+
+int main(void)
+{
+//	setlocale(LC_ALL, "rus"); // установка локали
+	//int day, month, year;
+//cout << "Введите текущий день месяц и год!\n";
+//	cout << "день: ";     cin >> day;
+//	cout << "месяц: ";    cin >> month;
+//	cout << "год: ";  cin >> year;
+//	CMine obj; // объявление объекта
+	obj.setCMine(); // вызов функции класса message
+	obj2.getCMine();
+//	objCppstudio.setDate(day, month, year); // инициализация даты
+//	objCppstudio.getDate(); // отобразить дату
+	system("pause");
+	return 0;
+}
