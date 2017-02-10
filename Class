@@ -1,0 +1,47 @@
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+class Human
+{
+private:
+	string Name;
+	int Age;
+
+public:
+	void SetName(string HumansName)
+	{
+		Name = HumansName;
+	}
+
+	void SetAge(int HumansAge)
+	{
+		Age = HumansAge;
+	}
+
+	void IntroduuceSelf()
+	{
+		cout << "I am " + Name << " and am ";
+		cout << Age << " years old " << endl;
+	}
+};
+
+int main()
+{
+		//Створюємо об'єкти для классу 
+	    //Human із значенням "Volodymyr"
+	Human FirstMan;
+	FirstMan.SetName("Volodymyr");
+	FirstMan.SetAge(18);
+
+	// Створюємо об'єкт кламуHuman 
+	//із значенням "Eve" атрибута Name
+
+	Human FirstWoman;
+	FirstWoman.SetName("Eve");
+	FirstWoman.SetAge(19);
+
+	FirstMan.IntroduuceSelf();
+	FirstWoman.IntroduuceSelf();
+}
