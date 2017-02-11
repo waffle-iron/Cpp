@@ -1,0 +1,61 @@
+#include<iostream>
+
+using namespace std;
+
+class MyString
+{
+private:
+	char* Buffer;
+
+public:
+	// конструктор
+	MyString(const char* InitialInput)
+	{
+		if (InitialInput != NULL)
+		{
+			Buffer = new char[strlen(InitialInput) + 1];
+			strcpy(Buffer, InitialInput);
+		}
+		else
+			Buffer = NULL;	
+  }
+	// Дестркуктор: звільнення буверу,
+	//зарезервованого в конструкторі
+	~MyString()
+	{
+		cout << "Invoking destructor, clearning up\n";
+		if (Buffer != NULL)
+			delete [] Buffer;
+	}
+
+	int GetLength()
+	{
+		return strlen(Buffer);
+	}
+
+	const char* GetString()
+	{
+		return Buffer;
+	}
+};// Кінець класу MyString
+
+int main()
+{
+	MyString SayHello("Hello from String Class");
+	cout << "String buffer in myString is "
+		<< SayHello.GetLength();
+	cout << " characters long" << endl;
+
+	cout << "Buffer contains:"
+		<< SayHello.GetString() << endl;
+
+	MyString SayHello1("Learn what make this program");
+	cout << "\n\nString buffer in myString is "
+		 << SayHello1.GetLength();
+	cout << " characters long " << endl;
+
+	cout << " Buffer contains: "
+		<< SayHello1.GetString() << endl;
+
+}
+
