@@ -1,0 +1,85 @@
+#include<iostream>	
+
+using namespace std;
+
+class MyString
+{
+private:
+	char* Buffer;
+public:
+	// Конструктор
+	MyString(const char* InitialInput)
+	{
+		cout << "Constrctor: creating new MyString" << endl;
+		if (InitialInput != NULL)
+		{
+			Buffer = new char[strlen(InitialInput) + 1];
+			strcpy(Buffer, InitialInput);
+			// Відображенння адреси області пам'яті локального буфера
+			cout << "Buffer pointf to: 0x " << hex;
+			cout << (unsigned int*)Buffer << endl;
+		}
+		else
+			Buffer = NULL;
+	}
+
+	// Конструктор	копий 
+	MyString(const MyString& CopySource)
+	{
+		cout << "Copy constructor: copying from MyString" << endl;
+
+		if (CopySource.Buffer != NULL)
+		{
+			// Гарантувати глибоке копіювання
+			// створивши спочатку власний бууфер
+
+			Buffer = new char[strlen(CopySource.Buffer) + 1];
+
+			// Копіювання із орегіналу у локальний буфер
+			strcpy(Buffer, CopySource.Buffer);
+
+			//Відображення адреси області пам'яті локального буфера
+
+			cout << "Buffer points to: 0x" << hex;
+			cout << (unsigned int*)Buffer << endl;
+		}
+		else
+			Buffer = NULL;
+		}
+
+	// Деструктор
+	MyString()
+	{
+		cout << "Invoking destructor, clearning up" << endl;
+		if (Buffer != NULL)
+			delete[] Buffer;
+	}
+
+	int GetLength()
+	{
+		return strlen(Buffer);
+	}
+
+	const char* GetString()
+	{
+		return Buffer;
+	}
+};
+
+void UseMyString(MyString Input)
+{
+	cout << "String buffer in MyString is " << Input.GetLength();
+	cout << " characters long" << endl;
+
+	cout << "Buffer contains: " << Input.GetString() << endl;
+	return;
+}
+
+int main()
+{
+	MyString SayHello("Hi from String Class");
+	// Передача SayHello за значенням з копіюванням
+	UseMyString(SayHello);
+	
+	return 0;
+}
