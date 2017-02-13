@@ -15,6 +15,7 @@ public:
 		{
 			Buffer = new char[strlen(InitialInput) + 1];
 			strcpy(Buffer, InitialInput);
+			
 			// Відображенння адреси області пам'яті локального буфера
 			cout << "Buffer pointf to: 0x " << hex;
 			cout << (unsigned int*)Buffer << endl;
@@ -35,7 +36,7 @@ public:
 
 			Buffer = new char[strlen(CopySource.Buffer) + 1];
 
-			// Копіювання із орегіналу у локальний буфер
+			// Копіювання із оригіналу у локальний буфер
 			strcpy(Buffer, CopySource.Buffer);
 
 			//Відображення адреси області пам'яті локального буфера
