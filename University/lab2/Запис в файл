@@ -1,0 +1,107 @@
+#include <iostream> 
+#include <stdio.h> 
+#include <cstring> 
+#include <fstream> 
+#include <string> 
+#include <iomanip> 
+
+using namespace std;
+
+int main()
+{
+
+
+	while (true)
+	{
+		cout << setw(50) << "Coal industry " << "\n";
+		cout << setw(45) << "Welcome" << "\n";
+
+		cout << "Write data —-> Press 1" << "\n";
+		cout << "Show data —-> Press 2" << "\n";
+		cout << "Exit —->Press 3" << "\n";
+
+		int choice;
+		cin >> choice;
+		if (choice == 1)
+		{
+			cout << "MOVE!..." << "\n";
+			string name;
+			int number;
+			int hour;
+			int pro;
+			cout << " Enter name mine:";
+			cin >> name;
+			cout << " Number:";
+			cin >> number;
+			cout << " Enter working hours:";
+			cin >> hour;
+			cout << "Enter production for change(Ton):";
+			cin >> pro;
+			static int res = pro / hour;
+			fstream outfile("File.txt", ios::app);
+			if (!outfile)
+			{
+				cout << "Go to home )))error......error";
+				return -1;
+			}
+			outfile.setf(ios::left);
+			outfile.width(18);
+			outfile << name << ' ';
+			outfile.width(18);
+			outfile << number << ' ';
+			outfile.width(18);
+			outfile << hour << ' ';
+			outfile.width(25);
+			outfile << pro << ' ';
+			outfile.width(25);
+			outfile << res << ' ' << endl;
+		
+			outfile.close();
+		}
+		if (choice == 2)
+		{
+			string name;
+			int hour;
+			int number;
+			int res;
+			ifstream infile;
+			infile.open("File.txt");
+			if (!infile)
+			{
+				cout << "Error...................";
+				return -1;
+			}
+			cout << setw(15) << " Mine " << setw(20) 
+				<< "Number workers" << setw(12) << "Hours" 
+				<< setw(40) << " Production for change(Ton/hour)" 
+				<< setw(10) << "Res" << endl;
+			while (!infile.eof())
+			{
+				infile >> name;
+				infile >> number;
+				infile >> hour;
+				infile >> res;
+				if (!infile.eof())
+				{
+					cout.width(15);
+					cout << name;
+					cout.width(15);
+					cout << number;
+					cout.width(15);
+					cout << hour;
+					cout.width(15);
+					cout << res;
+					cout << endl;
+				}
+			}
+			infile.close();
+		}
+		if (choice == 3)
+		{
+			cout << "God bless you!" << "\n";
+			break;
+		}
+	}
+	system("Pause");
+	return 0;
+}
