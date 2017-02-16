@@ -49,11 +49,8 @@ public: // спецификатор доступа public
 int main(void)
 {
 //	setlocale(LC_ALL, "rus"); // установка локали
-	//int day, month, year;
 //cout << "Введите текущий день месяц и год!\n";
-//	cout << "день: ";     cin >> day;
-//	cout << "месяц: ";    cin >> month;
-//	cout << "год: ";  cin >> year;
+
 //	CMine obj; // объявление объекта
 	obj.setCMine(); // вызов функции класса message
 	obj2.getCMine();
