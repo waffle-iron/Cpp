@@ -29,11 +29,15 @@ public:
 
 int main()
 {
-		//Створюємо об'єкти для классу 
-	    //Human із значенням "Volodymyr"
+	//Створюємо об'єкти для классу 
+	//Human із значенням "Volodymyr"
 	Human FirstMan;
 	FirstMan.SetName("Volodymyr");
 	FirstMan.SetAge(18);
+	
+	Human FirstMan2;
+	FirstMan2.SetName("Igor");
+	FirstMan2.SetAge(20);
 
 	// Створюємо об'єкт кламуHuman 
 	//із значенням "Eve" атрибута Name
@@ -43,5 +47,6 @@ int main()
 	FirstWoman.SetAge(19);
 
 	FirstMan.IntroduuceSelf();
+	FirstMan2.IntroduuceSelf();
 	FirstWoman.IntroduuceSelf();
 }
