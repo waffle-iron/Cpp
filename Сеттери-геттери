@@ -1,0 +1,14 @@
+ class Foo
+ {
+ private:
+   int m_data;
+ public:
+   void setData (int data)
+   {
+      m_data = data;
+   }
+   int getData () const
+   {
+      return m_data;
+   }
+ }
