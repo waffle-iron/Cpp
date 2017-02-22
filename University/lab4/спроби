@@ -2,60 +2,92 @@
 
 using namespace std;
 
+
 class CMine // имя класса
 {
 private: // спецификатор доступа private
-	int depth; // глибина
-	int	volume; // об'єм
-	int	resource; // запаси шахти
-	int	number;		// к - сть шахтарнів 
+	double depth; // глибина
+	double	volume; // об'єм
+	double	resource; // запаси шахти
+	int	n_people;		// к - сть шахтарнів 
 	int productivity;//Продуктивність одного шахтаря
 public: // спецификатор доступа public
 
-	CMine(int d, int v, int r, int n, int p)
+
+	void set_depth(double d)
 	{
-		// Присвоюємо нашим елементам класу значення параметрів
 		depth = d;
+	}
+
+	void set_volume(double v)
+	{
 		volume = v;
+	}
+
+	void set_resource(double r)
+	{
 		resource = r;
-		number = n;
+	}
+
+	void set_number(int n)
+	{
+		n_people = n;
+	}
+
+	void set_productivity(int p)
+	{
 		productivity = p;
 	}
-	void setCMine()
+
+	double get__depth()
 	{
-		cout << " Enter depth:";
-		cin >> depth;
-		cout << "\n Enter volume:";
-		cin >> volume;
-		cout << "\n Enter resource:";
-		cin >> resource;
-		cout << "\n Enter number:";
-		cin >> number;
-		cout << "\n Enter productivity:";
-		cin >> productivity;
+		return depth;
 	}
 
-	void getCMine()
+	double get_volume()
 	{
-		cout << "Depth = " << depth << endl;
-		cout << "Volume = " << volume << endl;
-		cout << "Resource = " << resource << endl;
-		cout << "Number = " << number << endl;
-		cout << "Productivity = " << productivity << endl;
+		return volume;
 	}
-} obj,obj2; // конец объявления класса + об'єкт
 
+	double get_resource()
+	{
+		return resource;
+	}
 
-int main(void)
-{
-//	setlocale(LC_ALL, "rus"); // установка локали
-//cout << "Введите текущий день месяц и год!\n";
+	int get_number()
+	{
+		return n_people;
+	}
 
-//	CMine obj; // объявление объекта
-	obj.setCMine(); // вызов функции класса message
-	obj2.getCMine();
-//	objCppstudio.setDate(day, month, year); // инициализация даты
-//	objCppstudio.getDate(); // отобразить дату
-	system("pause");
-	return 0;
+	int get_productivity()
+	{
+		return productivity;
+	}
 }
+
+	int main(int argv, char* argc)
+	{
+		CMine *people = new CMine[4];
+		people[0].set_productivity(20);
+		people[1].set_productivity(50);
+		people[2].set_productivity(76);
+		people[3].set_productivity(32);
+		
+		CMine Donbas;
+		Donbas.set_depth(80);
+		Donbas.set_volume(140);
+		Donbas.set_number(4);
+
+
+		cout << "Depth:" << Donbas.get__depth();
+		cout << "\nVolume:" << Donbas.get_volume();
+		cout << "\nNumber of employees:" << Donbas.get_number() << endl;
+		
+		for (int i = 0; i < 4; ++i) {
+			cout << "Productivity " << i + 1 
+			<< people[i].get_productivity() << endl;
+			}
+		delete [] people;
+		system("pause");
+		return 0;
+	}
