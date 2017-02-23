@@ -71,10 +71,7 @@ void set_depth(double d)
 		return productivity;
 	}
 
-	int Add_Ruda()
-	{
-
-	}
+	
 	~CMine(){ }
 };
 
@@ -93,9 +90,9 @@ int main(int argv, char* argc[])
 
 	while (true)
 	{
-		cout << "Show data – press 1" << endl;
-		cout << "Add data - press 2" << endl;
-		cout << "Exit – press 3" << endl;
+		cout << "\n\nShow data 1" << endl;
+		cout << "Add data 2" << endl;
+		cout << "Exit 3" << endl;
 
 		int choice;
 		cin >> choice;
@@ -122,13 +119,14 @@ int main(int argv, char* argc[])
 				cout << "Print number(+,-):";
 			case 1:
 				double m;
+				int i;
 				cin >> m;
 				m = m + Donbas.get_depth();
 				cout << "Depth:" << m;
 				cout << "\nVolume:" << Donbas.get_volume();
 				cout << "\nNumber of employees:" << Donbas.get_number() << endl;
 
-				for (int i = 0; i < 4; ++i) {
+				for (i = 0; i < 4; ++i) {
 					cout << "Productivity_" << i + 1 << " "
 						<< people[i].get_productivity() << endl;
 					break;
@@ -140,19 +138,18 @@ int main(int argv, char* argc[])
 				cout << "\nVolume:" << m;
 				cout << "\nNumber of employees:" << Donbas.get_number() << endl;
 				break;
-
-
-			case 3:
-				break;
+				}
 
 			default:
 				cout << "Error!" << endl;
 				break;
 
 				}
-		}
+			break;
+			}
+		if (choice == 3)
+			break;
 	}
-			system("pause");
-			return 0;
-		}
-	
+		system("pause");
+		return 0;
+	}
