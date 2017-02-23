@@ -39,7 +39,7 @@ public: // спецификатор доступа public
 		productivity = p;
 	}
 
-	double get__depth()
+	double get_depth()
 	{
 		return depth;
 	}
@@ -65,29 +65,29 @@ public: // спецификатор доступа public
 	}
 };
 
-	int main(int argv, char* argc[])
-	{
-		CMine *people = new CMine[4];
-		people[0].set_productivity(20);
-		people[1].set_productivity(50);
-		people[2].set_productivity(76);
-		people[3].set_productivity(32);
-		
-		CMine Donbas;
-		Donbas.set_depth(80);
-		Donbas.set_volume(140);
-		Donbas.set_number(4);
+int main(int argv, char* argc[])
+{
+	CMine *people = new CMine[4];
+	people[0].set_productivity(20);
+	people[1].set_productivity(50);
+	people[2].set_productivity(76);
+	people[3].set_productivity(32);
+
+	CMine Donbas;
+	Donbas.set_depth(80);
+	Donbas.set_volume(140);
+	Donbas.set_number(4);
 
 
-		cout << "Depth:" << Donbas.get__depth();
-		cout << "\nVolume:" << Donbas.get_volume();
-		cout << "\nNumber of employees:" << Donbas.get_number() << endl;
-		
-		for (int i = 0; i < 4; ++i) {
-			cout << "Productivity_" << i + 1 << " " 
+	cout << "Depth:" << Donbas.get_depth();
+	cout << "\nVolume:" << Donbas.get_volume();
+	cout << "\nNumber of employees:" << Donbas.get_number() << endl;
+
+	for (int i = 0; i < 4; ++i) {
+		cout << "Productivity_" << i + 1 << " "
 			<< people[i].get_productivity() << endl;
-			}
-		delete [] people;
-		system("pause");
-		return 0;
 	}
+	delete[] people;
+	system("pause");
+	return 0;
+}
