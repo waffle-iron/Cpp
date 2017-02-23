@@ -1,0 +1,158 @@
+#include <iostream>
+
+using namespace std;
+
+
+class CMine // имя класса
+{
+private: // спецификатор доступа private
+	double depth; // глибина
+	double	volume; // об'єм
+	double	resource; // запаси шахти
+	int	n_people;		// к - сть шахтарнів 
+	int productivity;//Продуктивність одного шахтаря
+public: // спецификатор доступа public
+	
+	CMine()
+	{
+		depth = 0;
+		volume = 0;
+		resource = 0;
+		n_people = 0;
+		productivity = 0;
+	}
+void set_depth(double d)
+	{
+		depth = d;
+	}
+
+	void set_volume(double v)
+	{
+		volume = v;
+	}
+
+	void set_resource(double r)
+	{
+		resource = r;
+	}
+
+	void set_number(int n)
+	{
+		n_people = n;
+	}
+
+	void set_productivity(int p)
+	{
+		productivity = p;
+	}
+
+	double get_depth()
+	{
+		return depth;
+	}
+
+	double get_volume()
+	{
+		return volume;
+	}
+
+	double get_resource()
+	{
+		return resource;
+	}
+
+	int get_number()
+	{
+		return n_people;
+	}
+
+	int get_productivity()
+	{
+		return productivity;
+	}
+
+	int Add_Ruda()
+	{
+
+	}
+	~CMine(){ }
+};
+
+int main(int argv, char* argc[])
+{
+	CMine *people = new CMine[4];
+	people[0].set_productivity(20);
+	people[1].set_productivity(50);
+	people[2].set_productivity(76);
+	people[3].set_productivity(32);
+
+	CMine Donbas;
+	Donbas.set_depth(80);
+	Donbas.set_volume(140);
+	Donbas.set_number(4);
+
+	while (true)
+	{
+		cout << "Show data – press 1" << endl;
+		cout << "Add data - press 2" << endl;
+		cout << "Exit – press 3" << endl;
+
+		int choice;
+		cin >> choice;
+		switch (choice)
+		{
+		case 1:
+			cout << "Depth:" << Donbas.get_depth();
+			cout << "\nVolume:" << Donbas.get_volume();
+			cout << "\nNumber of employees:" << Donbas.get_number() << endl;
+
+			for (int i = 0; i < 4; ++i) {
+				cout << "Productivity_" << i + 1 << " "
+					<< people[i].get_productivity() << endl;
+			}
+			break;
+			delete[] people;
+
+		case 2:
+			cout << "Add depth - 1\nAdd ruda  - 2\n";
+			int a;
+			cin >> a;
+			switch (a)
+			{
+				cout << "Print number(+,-):";
+			case 1:
+				double m;
+				cin >> m;
+				m = m + Donbas.get_depth();
+				cout << "Depth:" << m;
+				cout << "\nVolume:" << Donbas.get_volume();
+				cout << "\nNumber of employees:" << Donbas.get_number() << endl;
+
+				for (int i = 0; i < 4; ++i) {
+					cout << "Productivity_" << i + 1 << " "
+						<< people[i].get_productivity() << endl;
+					break;
+			case 2:
+				double m;
+				cin >> m;
+				m = m + Donbas.get_volume();
+				cout << "Depth:" << Donbas.get_depth();
+				cout << "\nVolume:" << m;
+				cout << "\nNumber of employees:" << Donbas.get_number() << endl;
+				break;
+
+
+			case 3:
+				break;
+
+			default:
+				cout << "Error!" << endl;
+				break;
+
+				}
+		}
+	}
+			system("pause");
+			return 0;
+		}
+	
