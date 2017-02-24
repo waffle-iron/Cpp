@@ -12,16 +12,15 @@ private: // спецификатор доступа private
 	int	n_people;		// к - сть шахтарнів 
 	int productivity;//Продуктивність одного шахтаря
 public: // спецификатор доступа public
-	
+
 	CMine()
 	{
 		depth = 0;
 		volume = 0;
-		resource = 0;
 		n_people = 0;
 		productivity = 0;
 	}
-void set_depth(double d)
+	void set_depth(double d)
 	{
 		depth = d;
 	}
@@ -29,11 +28,6 @@ void set_depth(double d)
 	void set_volume(double v)
 	{
 		volume = v;
-	}
-
-	void set_resource(double r)
-	{
-		resource = r;
 	}
 
 	void set_number(int n)
@@ -56,10 +50,6 @@ void set_depth(double d)
 		return volume;
 	}
 
-	double get_resource()
-	{
-		return resource;
-	}
 
 	int get_number()
 	{
@@ -70,9 +60,18 @@ void set_depth(double d)
 	{
 		return productivity;
 	}
-
 	
-	~CMine(){ }
+	double Add_ruda()
+	{
+		cout << "How much you achieve today?\n";
+		static double rud;
+		cin >> rud;
+		volume = volume + rud;
+		depth = (depth + rud) * 1/2 ;
+	}
+
+
+	~CMine() { }
 };
 
 int main(int argv, char* argc[])
@@ -91,7 +90,7 @@ int main(int argv, char* argc[])
 	while (true)
 	{
 		cout << "\n\nShow data 1" << endl;
-		cout << "Add data 2" << endl;
+		cout << "Add ruda - 2\n";
 		cout << "Exit 3" << endl;
 
 		int choice;
@@ -102,7 +101,7 @@ int main(int argv, char* argc[])
 			cout << "Depth:" << Donbas.get_depth();
 			cout << "\nVolume:" << Donbas.get_volume();
 			cout << "\nNumber of employees:" << Donbas.get_number() << endl;
-
+		
 			for (int i = 0; i < 4; ++i) {
 				cout << "Productivity_" << i + 1 << " "
 					<< people[i].get_productivity() << endl;
@@ -111,45 +110,26 @@ int main(int argv, char* argc[])
 			delete[] people;
 
 		case 2:
-			cout << "Add depth - 1\nAdd ruda  - 2\n";
-			int a;
-			cin >> a;
-			switch (a)
-			{
-				cout << "Print number(+,-):";
-			case 1:
-				double m;
-				int i;
-				cin >> m;
-				m = m + Donbas.get_depth();
-				cout << "Depth:" << m;
-				cout << "\nVolume:" << Donbas.get_volume();
-				cout << "\nNumber of employees:" << Donbas.get_number() << endl;
+			double Add_ruda();
+			cout << "Depth:" << Donbas.get_depth();
+			cout << "\nVolume:" << Donbas.get_volume();
+			cout << "\nNumber of employees:" << Donbas.get_number() << endl;
 
-				for (i = 0; i < 4; ++i) {
-					cout << "Productivity_" << i + 1 << " "
-						<< people[i].get_productivity() << endl;
-					break;
-			case 2:
-				double m;
-				cin >> m;
-				m = m + Donbas.get_volume();
-				cout << "Depth:" << Donbas.get_depth();
-				cout << "\nVolume:" << m;
-				cout << "\nNumber of employees:" << Donbas.get_number() << endl;
-				break;
-				}
-
-			default:
-				cout << "Error!" << endl;
-				break;
-
-				}
-			break;
+			for (int i = 0; i < 4; ++i) {
+				cout << "Productivity_" << i + 1 << " "
+					<< people[i].get_productivity() << endl;
 			}
-		if (choice == 3)
+				break;
+
+		case 3:
 			break;
+		
+		default:
+			cout << "Error!" << endl;
+			break;
+	
+		}
 	}
-		system("pause");
-		return 0;
-	}
+	system("pause");
+	return 0;
+}
