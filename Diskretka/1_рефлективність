@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void)
+{
+int size;
+int Sum = 0;
+srand( time(NULL) );
+printf("Введіть розмір матриці:");
+scanf("%i",&size);
+printf("Матриця буде виглядати так\n\n");
+int Array[size][size];
+for (int i = 0; i < size; i++ )
+{
+for (int j = 0; j < size; j++){
+Array[i][j] = rand()%10;
+printf("%4d",Array[i][j]);
+}
+printf("\n\n");
+}
+
+{
+//Фукція суми.
+int a = 0;
+while (a < size)
+{
+Sum += Array[a][a];
+a++;
+}
+printf("Сума елементів головної діагоналі буде:%i\n",Sum);
+}
+return 0;
+}
