@@ -1,34 +1,32 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
 
 int main(void)
 {
+int a,i = 0;
 int size;
-int Sum = 0;
-srand( time(NULL) );
-printf("Введіть розмір матриці:");
+int k,l = 0;
+printf("Введіть розмір елементів:");
 scanf("%i",&size);
-printf("Матриця буде виглядати так\n\n");
-int Array[size][size];
-for (int i = 0; i < size; i++ )
-{
-for (int j = 0; j < size; j++){
-Array[i][j] = rand()%10;
-printf("%4d",Array[i][j]);
-}
-printf("\n\n");
-}
+printf("Заповніть множину A:\n");
+int A[500],B[500];
+int x;
+for (i = 0; i < size; i++ )
+A[i] = scanf("%i",&x);
+printf("Заповніть множину B:\n");
+for (i = 0; i < size; i++)
+B[i] = scanf("%i",&x);
 
+for(i = 0; i < size; i++)
 {
-//Фукція суми.
-int a = 0;
-while (a < size)
-{
-Sum += Array[a][a];
-a++;
+if(A[0] == B[i]){
+++l;
+if(B[0] == A[i])
+++k;
 }
-printf("Сума елементів головної діагоналі буде:%i\n",Sum);
 }
+	if ( k + l == size)
+	printf ("Функція рефлективна!!!\n");
+	else 
+	printf ("Функція не рефлективна!!!\n");
 return 0;
 }
