@@ -1,27 +1,55 @@
 #include <stdio.h>
+#include <iostream>
+using namespace std;
 
 int main(void)
 {
-int size;
-int k , l = 0;
-printf("Введіть розмір елементів:");
-scanf("%i",&size);
-printf("Заповніть множину A:\n");
-int A[500],B[500];
-int x,y;
-for (int i = 0; i < size; i++ )
-A[i] = scanf("%i",&x);
-printf("Заповніть множину B:\n");
-for (int i = 0; i < size; i++)
-B[i] = scanf("%i",&y);
+	const int size0 = 10;
+	int a[size0];
+	int b[size0];
+	int l = 0;
+	printf("Enter the size of elements:");
+	int size;
+	cin >> size;
+	printf("Complete set of A:\n");
+	
+	for (int i = 0; i < size; i++)
+		cin >> a[i];
 
-for(int i = 0; i < size; i++){
-l += A[i];
-k += B[i];
-}
-	if ( l == k)
-	printf ("Функція рефлективна!!!\n");
-	if ( l != k) 
-	printf ("Функція не рефлективна!!!\n");
-return 0;
+
+	// Сортування
+	for (int i = 0; i<size - 1; ++i)
+	{
+		for (int j = 0; j<size - i - 1; ++j)
+		{
+			if (a[j] > a[j + 1]) {
+				swap(a[j], a[j + 1]);
+			}
+		}
+	}
+	
+	printf("Complete set of B:\n");
+	for (int i = 0; i < size; i++)
+		cin >> b[i];
+
+	for (int i = 0; i<size - 1; ++i)
+	{
+		for (int j = 0; j<size - i - 1; ++j)
+		{
+			if (b[j] > b[j + 1]) {
+				swap(b[j], b[j + 1]);
+			}
+		}
+	}
+
+	for (int i = 0; i < size; i++) {
+	if (a[i] == b[i])
+	l++;
+	}
+
+	if (l == size)
+		printf("Reflective function !!!\n");
+	if (l != size)
+		printf("Function is not reflective !!!\n");
+	return 0;
 }
