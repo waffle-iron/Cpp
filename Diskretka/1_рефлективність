@@ -2,31 +2,26 @@
 
 int main(void)
 {
-int a,i = 0;
 int size;
-int k,l = 0;
+int k , l = 0;
 printf("Введіть розмір елементів:");
 scanf("%i",&size);
 printf("Заповніть множину A:\n");
 int A[500],B[500];
-int x;
-for (i = 0; i < size; i++ )
+int x,y;
+for (int i = 0; i < size; i++ )
 A[i] = scanf("%i",&x);
 printf("Заповніть множину B:\n");
-for (i = 0; i < size; i++)
-B[i] = scanf("%i",&x);
+for (int i = 0; i < size; i++)
+B[i] = scanf("%i",&y);
 
-for(i = 0; i < size; i++)
-{
-if(A[0] == B[i]){
-++l;
-if(B[0] == A[i])
-++k;
+for(int i = 0; i < size; i++){
+l += A[i];
+k += B[i];
 }
-}
-	if ( k + l == size)
+	if ( l == k)
 	printf ("Функція рефлективна!!!\n");
-	else 
+	if ( l != k) 
 	printf ("Функція не рефлективна!!!\n");
 return 0;
 }
