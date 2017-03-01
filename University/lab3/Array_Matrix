@@ -1,32 +1,44 @@
-#include <stdio.h>
 #include <iostream>
+#include <conio.h>
 using namespace std;
 
-int main(void)
-{
-	const int size = 5;
-	int A[size];
-	int B[size];
-	int k = 0;
-	int l = 0;
-	printf("Enter the size of elements:");
-	scanf("%i", &size);
-	printf("Complete set of A:\n");
-
-
-	for (int i = 0; i < size; i++)
-		cin >> A[i];
-	printf("Complete set of B:\n");
-	for (int i = 0; i < size; i++)
-		cin >> B[i];
-
-	for (int i = 0; i < size; i++) {
-		l += A[i];
-		k += B[i];
+void func(int** arr, int n) {
+	for (int i = 0; i < n; i++) {
+		for (int j = n - i ; j < n; j++) {
+				arr[i][j] = 0;
+		}
 	}
-	if (l == k)
-		printf("Reflective function !!!\n");
-	if (l != k)
-		printf("Function is not reflective !!!\n");
-	return 0;
+
+}
+int main() {
+	int n;
+	cout << "Enter size of array:";
+	cin >> n;
+	int **a = new int *[n];
+	for (int і = 0; і<n; і++)
+		if ((a[і] = new int[n]) == NULL)
+		{
+			cout << "Немає пам'яті!\n";
+			return -1;
+		}
+	for (int i = 0; i<n; i++) {
+		for (int j = 0; j<n; j++) {
+			a[i][j] = 1;
+		}
+	}
+	func(a, n);
+	for (int i = 0; i<n; i++) {
+		for (int j = 0; j<n; j++) {
+			cout.width(3);
+			cout << a[i][j];
+		}
+		cout << endl;
+	}
+	for (int і = 0; і<n; і++)
+	{
+		delete[] a[і];
+	}
+	delete[] a;
+
+	getch();
 }
