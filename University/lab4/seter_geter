@@ -13,7 +13,13 @@ private: // спецификатор доступа private
 	int productivity;//Продуктивність одного шахтаря
 public: // спецификатор доступа public
 
-
+	CMine()
+	{
+		depth = 0;
+		volume = 0;
+		n_people = 0;
+		productivity = 0;
+	}
 	void set_depth(double d)
 	{
 		depth = d;
@@ -22,11 +28,6 @@ public: // спецификатор доступа public
 	void set_volume(double v)
 	{
 		volume = v;
-	}
-
-	void set_resource(double r)
-	{
-		resource = r;
 	}
 
 	void set_number(int n)
@@ -49,10 +50,6 @@ public: // спецификатор доступа public
 		return volume;
 	}
 
-	double get_resource()
-	{
-		return resource;
-	}
 
 	int get_number()
 	{
@@ -63,6 +60,17 @@ public: // спецификатор доступа public
 	{
 		return productivity;
 	}
+
+	void Add_ruda()
+	{
+		cout << "How many you achieve today?\n";
+		static int rud;
+		cin >> rud;
+		volume += rud;
+		depth = (depth + rud) * 2;
+	}
+
+	~CMine() { }
 };
 
 int main(int argv, char* argc[])
@@ -78,16 +86,54 @@ int main(int argv, char* argc[])
 	Donbas.set_volume(140);
 	Donbas.set_number(4);
 
+	while (true)
+	{
+		cout << "\n\nShow data 1" << endl;
+		cout << "Add ruda - 2\n";
+		cout << "Exit 3" << endl;
 
-	cout << "Depth:" << Donbas.get_depth();
-	cout << "\nVolume:" << Donbas.get_volume();
-	cout << "\nNumber of employees:" << Donbas.get_number() << endl;
+		int choice;
+		cin >> choice;
+		switch (choice)
+		{
+		case 1:
+			cout << "Depth:" << Donbas.get_depth();
+			cout << "\nVolume:" << Donbas.get_volume();
+			cout << "\nNumber of employees:" << Donbas.get_number() << endl;
 
-	for (int i = 0; i < 4; ++i) {
-		cout << "Productivity_" << i + 1 << " "
-			<< people[i].get_productivity() << endl;
+			for (int i = 0; i < 4; ++i) {
+				cout << "Productivity_" << i + 1 << " "
+					<< people[i].get_productivity() << endl;
+			}
+			break;
+			delete[] people;
+
+		case 2:
+			
+			Donbas.Add_ruda();
+
+			cout << "Depth:" << Donbas.get_depth();
+			cout << "\nVolume:" << Donbas.get_volume();
+			cout << "\nNumber of employees:" << Donbas.get_number() << endl;
+
+			for (int i = 0; i < 4; ++i) {
+				cout << "Productivity_" << i + 1 << " "
+					<< people[i].get_productivity() << endl;
+			}
+			break;
+		case 3:
+			break;
+		default:
+			cout << "Error!" << endl;
+			break;
+
+		}
+
+		if (choice == 3)
+			break;
+
+
 	}
-	delete[] people;
 	system("pause");
 	return 0;
 }
