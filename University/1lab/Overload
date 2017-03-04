@@ -11,6 +11,7 @@ int main(void)
 	printf("Function with double is:%0.1f\n", func(arr2, 3));
 	return 0;
 }
+
 double func(int* arr, int length)
 {
 	int sum = 0;
