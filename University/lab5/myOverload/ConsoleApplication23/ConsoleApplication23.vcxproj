@@ -19,7 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Source.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{82498AA1-CFC1-41F5-BB24-6608BB5D824B}</ProjectGuid>
