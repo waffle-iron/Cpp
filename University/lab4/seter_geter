@@ -106,10 +106,9 @@ int main(int argv, char* argc[])
 					<< people[i].get_productivity() << endl;
 			}
 			break;
-			delete[] people;
-
-		case 2:
 			
+		case 2:
+
 			Donbas.Add_ruda();
 
 			cout << "Depth:" << Donbas.get_depth();
@@ -131,9 +130,9 @@ int main(int argv, char* argc[])
 
 		if (choice == 3)
 			break;
-
-
 	}
+
+	delete[] people;
 	system("pause");
 	return 0;
 }
