@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 double func(int* arr, int length);
+
 double func(double* arr, int length);
 
 int main(void)
