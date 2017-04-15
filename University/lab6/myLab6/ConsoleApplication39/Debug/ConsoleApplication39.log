@@ -1,0 +1,4 @@
+﻿  Office.cpp
+c:\users\volodymyr\documents\visual studio 2017\projects\consoleapplication39\consoleapplication39\office.cpp(22): warning C4715: 'Office::Colors': not all control paths return a value
+  ConsoleApplication39.vcxproj -> c:\users\volodymyr\documents\visual studio 2017\Projects\ConsoleApplication39\Debug\ConsoleApplication39.exe
+  ConsoleApplication39.vcxproj -> c:\users\volodymyr\documents\visual studio 2017\Projects\ConsoleApplication39\Debug\ConsoleApplication39.pdb (Partial PDB)
