@@ -7,7 +7,7 @@ char Office::Colors()
 	int i = 0;
 	do
 	{
-		cout << "Choose color office!!!\n";
+		cout << "\nChoose color office!!!\n";
 		cout << "\n1.Green\n2.Blue\n3.Red\n";
 		cin >> i;
 		{

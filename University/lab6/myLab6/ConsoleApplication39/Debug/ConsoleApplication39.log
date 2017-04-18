@@ -1,4 +1,5 @@
-﻿  Office.cpp
-c:\users\volodymyr\documents\visual studio 2017\projects\consoleapplication39\consoleapplication39\office.cpp(22): warning C4715: 'Office::Colors': not all control paths return a value
-  ConsoleApplication39.vcxproj -> c:\users\volodymyr\documents\visual studio 2017\Projects\ConsoleApplication39\Debug\ConsoleApplication39.exe
-  ConsoleApplication39.vcxproj -> c:\users\volodymyr\documents\visual studio 2017\Projects\ConsoleApplication39\Debug\ConsoleApplication39.pdb (Partial PDB)
+﻿  main.cpp
+c:\users\volodymyr\documents\visual studio 2017\projects\consoleapplication39\consoleapplication39\office.h(8): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.14393.0\ucrt\string.h(129): note: see declaration of 'strcpy'
+  ConsoleApplication39.vcxproj -> C:\Users\Volodymyr\documents\visual studio 2017\Projects\ConsoleApplication39\Debug\ConsoleApplication39.exe
+  ConsoleApplication39.vcxproj -> C:\Users\Volodymyr\documents\visual studio 2017\Projects\ConsoleApplication39\Debug\ConsoleApplication39.pdb (Partial PDB)

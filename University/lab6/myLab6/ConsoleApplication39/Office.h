@@ -3,8 +3,18 @@
 class Office : public Home
 {
 public:
-	//Office(char* fName);
-	//virtual ~Office();
+	Office(char* fName) {
+		nameCompany = new char[strlen(fName) + 1];
+		strcpy(nameCompany, fName);
+		cout << "\nName company is:" << nameCompany;
+	};
+
+	~Office()
+	{
+		if (nameCompany != 0)
+			delete[] nameCompany;
+	};
+
 	virtual int Price();
 	virtual char Colors();
 	void Office::setDoors(int d) {
@@ -44,16 +54,3 @@ private:
 	int capacity = 5000;
 	char* nameCompany;
 };
-
-/*
-Office::Office(char* fName) {
-	nameCompany = new char[strlen(fName) + 1];
-	cout << "\nName company is:\n" << nameCompany;
-}
-
-Office::~Office()
-{
-	if (nameCompany != 0)
-		delete[] nameCompany;
-}
-*/
