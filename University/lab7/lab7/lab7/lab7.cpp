@@ -8,6 +8,7 @@ class CAssaulRife
 protected:
 	int(*power);
 	int price;
+	char* m_pszName;
 public:
 	CAssaulRife()
 	{
@@ -28,9 +29,12 @@ public:
 	}
 	~CAssaulRife()
 	{
-		delete power;
+		delete  power;
 	}
+
+CAssaulRife& operator=(const CAssaulRife&);
 };
+
 class CBazooka :virtual public CAssaulRife
 {
 protected:
@@ -59,6 +63,8 @@ public:
 		CAssaulRife::showinfo();
 		cout << endl << "shops: " << nShops;
 	}
+
+	CBazooka& operator=(const CBazooka&);
 };
 class CMachineGun : virtual public CAssaulRife
 {
@@ -86,10 +92,13 @@ public:
 		CAssaulRife::showinfo();
 		cout << "Speed: " << speed;
 	}
+
+	CMachineGun& operator=(const CMachineGun&);
 };
+
 class CGun : public CBazooka, public CMachineGun
 {
-public:
+ protected:
 	int usable;
 public:
 	CGun()
@@ -104,6 +113,7 @@ public:
 	{
 		usable = caf;
 	}
+
 	void openUsable()
 	{
 		usable++;
@@ -117,25 +127,81 @@ public:
 		CBazooka::showinfo();
 		cout << endl << "speed: " << speed << endl << "Usable: " << usable;
 	}
+
+  CGun& operator=(const CGun&);
+
 };
+
+
+CAssaulRife& CAssaulRife::operator=(const CAssaulRife& obj) 
+{
+	if (this != &obj){
+	cout << "CAssaulRife operator=" << endl;
+	delete [] m_pszName;
+	m_pszName = new char[strlen(obj.m_pszName) + 1];	
+	strcpy(m_pszName, obj.m_pszName);
+	}
+	return *this;
+}
+
+
+CBazooka& CBazooka::operator=(const CBazooka& obj)
+{
+if (this != &obj){
+	cout << "CBazooka operator=" << endl;
+	delete [] m_pszName;
+	m_pszName = new char[strlen(obj.m_pszName) + 1];	
+	strcpy(m_pszName, obj.m_pszName);
+	}
+	return *this;
+}
+
+CMachineGun& CMachineGun::operator=(const CMachineGun& obj)
+{
+if (this != &obj){
+	cout << "MachineGun operator=" << endl;
+	delete [] m_pszName;
+	m_pszName = new char[strlen(obj.m_pszName) + 1];	
+	strcpy(m_pszName, obj.m_pszName);
+	CAssaulRife::operator=(obj);
+	}
+	return *this;
+}
+
+CGun& CGun::operator=(const CGun& obj)
+{
+if (this != &obj){
+	cout << "CGun operator=" << endl;
+	delete [] m_pszName;
+	CBazooka::operator=(obj);
+	CMachineGun::operator=(obj);
+
+	}
+	return *this;
+}
 
 int main()
 {
 	cout << endl << "--------------\\create AssaulRife C-----------------------------";
 	cout << endl << "--------------\\use function showinfo() for C-------------------";
-	CAssaulRife C;
-	C.setPower(10);
-	C.setPrice(100);
-	C.showinfo();
+	CAssaulRife c;
+	c.setPower(10);
+	c.setPrice(100);
+	c.showinfo();
 	cout << endl << "-------------\\create CGun C1------------------------------------";
 	cout << endl << "--------------\\use function showinfo() for C1-------------------";
-	CGun C1;
-	C1.setPower(5);
-	C1.setPrice(500);
-	C1.setshops(56);
-	C1.setSpeed(36);
-	C1.setUsable(12);
-	C1.showinfo();
+	
+	CGun c1;
+	c1.setPower(5);
+	c1.setPrice(500);
+	c1.setshops(56);
+	c1.setSpeed(36);
+	c1.setUsable(12);
+	c1.showinfo();
+
+	//CGun c2(c1);   //Overloading
+	//cout << endl;
+	//c2.showinfo();
 
 	
 	return 0;
