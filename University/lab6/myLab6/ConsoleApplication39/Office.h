@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 #include "Home.h"
 
 class Office : public Home
@@ -54,3 +55,5 @@ private:
 	int capacity = 5000;
 	char* nameCompany;
 };
+=======
+>>>>>>> Stashed changes
