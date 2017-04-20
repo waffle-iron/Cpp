@@ -2,63 +2,50 @@
 
 using namespace std;
 
-template <class type>
+template <class T>
 class Arr
 {
 protected:
-	type k;
-	int lenght,l;
-	float n;
-	type mas[100];
+	T k;
+	int lenght,l,n;
+	T mas[100];
 public:
 	Arr()
 	{
 	lenght=5;
-	for(l=0;l<lenght;l++)
+	for(l=0; l<lenght; l++)
 	 {
 	 mas[l]=0;
 	 }
-	n=0;
-	k=0;
-
+	n = 1;
 	}
 	
 
 	void func()
 	{
 	 int i;
-	 for(i=0;i<lenght;i++)
+	 for(i=0; i < lenght; i++)
 	 {
-		k+=mas[i];
+		if (mas[i] < mas[i + 1]) 
+		{ 
+			n++;
+		}
+		else if ( mas[i] >= mas[i + 1] )
+		{
+			i++;
+		}
 	 }
-	 n=float(k)/lenght;
-
-	 for(i=0;i<lenght;i++)
-	 {
-	 if(mas[i]>n)
-	 {
-	  mas[i]=n;
-	 }
-	 }
+	 cout << "Number is:" << n <<endl;
      }
-
-	void cout_arr()
-	{
-	for(int i=0;i<lenght;i++)
-	 {
-		cout<< mas[i]<<"\t";
-	 }
-	cout<<endl;
-	}
 
 	void cin_arr()
 	{
 	 cout<<"Enter size array: ";
 	 cin>>lenght;
-	 cout<<"Enter array: ";
+	 cout<<"\nEnter array: ";
 	for(int i=0;i<lenght;i++)
 	 {
-		cin>> mas[i];
+		cin >> mas[i];
 	 }
 	}
 	
@@ -67,15 +54,13 @@ public:
 };
 
 int main()
-{
-	setlocale (LC_CTYPE, "ukr");
-	
-	Arr<float> ob;
+{	
+	Arr<int> ob;
     ob.cin_arr();
-	ob.cout_arr();
 	ob.func();
-	ob.cout_arr();
-	
-	system("pause");
+
+	Arr<char> ob2;
+	ob2.cin_arr();
+	ob2.func();
 	return 0;
 }
