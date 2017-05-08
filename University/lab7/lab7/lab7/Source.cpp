@@ -137,6 +137,6 @@ int main()
 	C1.setUsable(12);
 	C1.showinfo();
 
-	
+
 	return 0;
 }

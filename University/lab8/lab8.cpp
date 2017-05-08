@@ -19,15 +19,15 @@ public:
 	 }
 	n = 1;
 	}
-	
+
 
 	void func()
 	{
 	 int i;
 	 for(i=0; i < lenght; i++)
 	 {
-		if (mas[i] < mas[i + 1]) 
-		{ 
+		if (mas[i] < mas[i + 1])
+		{
 			n++;
 		}
 		else if ( mas[i] >= mas[i + 1] )
@@ -48,13 +48,13 @@ public:
 		cin >> mas[i];
 	 }
 	}
-	
+
 ~Arr(){}
 
 };
 
 int main()
-{	
+{
 	Arr<int> ob;
     ob.cin_arr();
 	ob.func();

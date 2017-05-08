@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-<<<<<<< Updated upstream
+
 char Office::Colors()
 {
 	int i = 0;
@@ -28,6 +28,3 @@ int Office::Price()
 	cout << " Rent office is:" << rent << endl;
 	return rent;
 }
-
-=======
->>>>>>> Stashed changes

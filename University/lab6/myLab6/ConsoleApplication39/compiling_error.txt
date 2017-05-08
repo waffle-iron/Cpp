@@ -1,0 +1,86 @@
+/home/volodymyr/Desktop/GitHub/Cpp/University/lab6/myLab6/ConsoleApplication39/Office.h:4:1: error: expected class-name before ‘{’ token
+ {
+ ^
+/home/volodymyr/Desktop/GitHub/Cpp/University/lab6/myLab6/ConsoleApplication39/Office.h:20:7: error: extra qualification ‘Office::’ on member ‘setDoors’ [-fpermissive]
+  void Office::setDoors(int d) {
+       ^
+/home/volodymyr/Desktop/GitHub/Cpp/University/lab6/myLab6/ConsoleApplication39/Office.h:24:6: error: extra qualification ‘Office::’ on member ‘getDoors’ [-fpermissive]
+  int Office::getDoors() {
+      ^
+/home/volodymyr/Desktop/GitHub/Cpp/University/lab6/myLab6/ConsoleApplication39/Office.h:28:7: error: extra qualification ‘Office::’ on member ‘setDoors’ [-fpermissive]
+  void Office::setDoors(int d)
+       ^
+/home/volodymyr/Desktop/GitHub/Cpp/University/lab6/myLab6/ConsoleApplication39/Office.h:28:7: error: ‘void Office::setDoors(int)’ cannot be overloaded
+/home/volodymyr/Desktop/GitHub/Cpp/University/lab6/myLab6/ConsoleApplication39/Office.h:20:7: error: with ‘void Office::setDoors(int)’
+  void Office::setDoors(int d) {
+       ^
+/home/volodymyr/Desktop/GitHub/Cpp/University/lab6/myLab6/ConsoleApplication39/Office.h:33:7: error: extra qualification ‘Office::’ on member ‘setWindows’ [-fpermissive]
+  void Office::setWindows(int w) {
+       ^
+/home/volodymyr/Desktop/GitHub/Cpp/University/lab6/myLab6/ConsoleApplication39/Office.h:37:6: error: extra qualification ‘Office::’ on member ‘getWindows’ [-fpermissive]
+  int Office::getWindows() {
+      ^
+/home/volodymyr/Desktop/GitHub/Cpp/University/lab6/myLab6/ConsoleApplication39/Office.h:41:7: error: extra qualification ‘Office::’ on member ‘setRooms’ [-fpermissive]
+  void Office::setRooms(int r) {
+       ^
+/home/volodymyr/Desktop/GitHub/Cpp/University/lab6/myLab6/ConsoleApplication39/Office.h:45:6: error: extra qualification ‘Office::’ on member ‘getRooms’ [-fpermissive]
+  int Office::getRooms() {
+      ^
+/home/volodymyr/Desktop/GitHub/Cpp/University/lab6/myLab6/ConsoleApplication39/Office.h:49:7: error: extra qualification ‘Office::’ on member ‘setFloors’ [-fpermissive]
+  void Office::setFloors(int f) {
+       ^
+/home/volodymyr/Desktop/GitHub/Cpp/University/lab6/myLab6/ConsoleApplication39/Office.h:53:6: error: extra qualification ‘Office::’ on member ‘getFloors’ [-fpermissive]
+  int Office::getFloors() {
+      ^
+/home/volodymyr/Desktop/GitHub/Cpp/University/lab6/myLab6/ConsoleApplication39/Office.h:57:17: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int employee = 700;
+                 ^
+/home/volodymyr/Desktop/GitHub/Cpp/University/lab6/myLab6/ConsoleApplication39/Office.h:59:17: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int capacity = 5000;
+                 ^
+/home/volodymyr/Desktop/GitHub/Cpp/University/lab6/myLab6/ConsoleApplication39/Office.h: In constructor ‘Office::Office(char*)’:
+/home/volodymyr/Desktop/GitHub/Cpp/University/lab6/myLab6/ConsoleApplication39/Office.h:7:38: error: ‘strlen’ was not declared in this scope
+   nameCompany = new char[strlen(fName) + 1];
+                                      ^
+/home/volodymyr/Desktop/GitHub/Cpp/University/lab6/myLab6/ConsoleApplication39/Office.h:8:28: error: ‘strcpy’ was not declared in this scope
+   strcpy(nameCompany, fName);
+                            ^
+/home/volodymyr/Desktop/GitHub/Cpp/University/lab6/myLab6/ConsoleApplication39/Office.h:9:3: error: ‘cout’ was not declared in this scope
+   cout << "\nName company is:" << nameCompany;
+   ^
+/home/volodymyr/Desktop/GitHub/Cpp/University/lab6/myLab6/ConsoleApplication39/Office.h: In member function ‘void Office::setDoors(int)’:
+/home/volodymyr/Desktop/GitHub/Cpp/University/lab6/myLab6/ConsoleApplication39/Office.h:21:3: error: ‘nDoors’ was not declared in this scope
+   nDoors = d;
+   ^
+/home/volodymyr/Desktop/GitHub/Cpp/University/lab6/myLab6/ConsoleApplication39/Office.h: In member function ‘int Office::getDoors()’:
+/home/volodymyr/Desktop/GitHub/Cpp/University/lab6/myLab6/ConsoleApplication39/Office.h:25:10: error: ‘nDoors’ was not declared in this scope
+   return nDoors;
+          ^
+/home/volodymyr/Desktop/GitHub/Cpp/University/lab6/myLab6/ConsoleApplication39/Office.h: In member function ‘void Office::setDoors(int)’:
+/home/volodymyr/Desktop/GitHub/Cpp/University/lab6/myLab6/ConsoleApplication39/Office.h:30:3: error: ‘nDoors’ was not declared in this scope
+   nDoors = d;
+   ^
+/home/volodymyr/Desktop/GitHub/Cpp/University/lab6/myLab6/ConsoleApplication39/Office.h: In member function ‘void Office::setWindows(int)’:
+/home/volodymyr/Desktop/GitHub/Cpp/University/lab6/myLab6/ConsoleApplication39/Office.h:34:3: error: ‘nWindows’ was not declared in this scope
+   nWindows = w;
+   ^
+/home/volodymyr/Desktop/GitHub/Cpp/University/lab6/myLab6/ConsoleApplication39/Office.h: In member function ‘int Office::getWindows()’:
+/home/volodymyr/Desktop/GitHub/Cpp/University/lab6/myLab6/ConsoleApplication39/Office.h:38:10: error: ‘nWindows’ was not declared in this scope
+   return nWindows;
+          ^
+/home/volodymyr/Desktop/GitHub/Cpp/University/lab6/myLab6/ConsoleApplication39/Office.h: In member function ‘void Office::setRooms(int)’:
+/home/volodymyr/Desktop/GitHub/Cpp/University/lab6/myLab6/ConsoleApplication39/Office.h:42:3: error: ‘nRooms’ was not declared in this scope
+   nRooms = r;
+   ^
+/home/volodymyr/Desktop/GitHub/Cpp/University/lab6/myLab6/ConsoleApplication39/Office.h: In member function ‘int Office::getRooms()’:
+/home/volodymyr/Desktop/GitHub/Cpp/University/lab6/myLab6/ConsoleApplication39/Office.h:46:10: error: ‘nRooms’ was not declared in this scope
+   return nRooms;
+          ^
+/home/volodymyr/Desktop/GitHub/Cpp/University/lab6/myLab6/ConsoleApplication39/Office.h: In member function ‘void Office::setFloors(int)’:
+/home/volodymyr/Desktop/GitHub/Cpp/University/lab6/myLab6/ConsoleApplication39/Office.h:50:3: error: ‘floors’ was not declared in this scope
+   floors = f;
+   ^
+/home/volodymyr/Desktop/GitHub/Cpp/University/lab6/myLab6/ConsoleApplication39/Office.h: In member function ‘int Office::getFloors()’:
+/home/volodymyr/Desktop/GitHub/Cpp/University/lab6/myLab6/ConsoleApplication39/Office.h:54:10: error: ‘floors’ was not declared in this scope
+   return floors;
+          ^

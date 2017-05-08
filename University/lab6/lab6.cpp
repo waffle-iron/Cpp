@@ -8,7 +8,7 @@ public:
 	virtual char* Color() = 0;  // колір
 	virtual int Price() = 0;  //ціна
 	virtual int Floors() = 0; //к-сь поверхів
-	
+
 
 	void setFloors(int x)
 	{
@@ -22,7 +22,7 @@ public:
 
 	void setSize(int s)
 	{
-		size = s;	
+		size = s;
 	}
 
 	int getSize()
@@ -46,7 +46,7 @@ public:
 	virtual ~Office();
 	virtual char* Color();
 	virtual int Price();
-	virtual int Floor(); 
+	virtual int Floor();
 	int employee = 0;
 	int rent = 0;
 };
@@ -77,10 +77,10 @@ int Office::Price()
 
 int main(int argc, char const *argv[])
 {
-	
+
 	capac.setFloors(4);
-	
-	cout << "You office center have" << capac.getFloors() 
+
+	cout << "You office center have" << capac.getFloors()
 	<< "floors" << endl;
 	Office pric;
 	pric.Price();

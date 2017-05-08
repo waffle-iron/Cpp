@@ -52,16 +52,16 @@ public:
 	//virtual ~Office();
 	 int Price();
 	 void Colors();
-	
+
 	void setDoors(int d);
 	int getDoors();
 	void setWindows(int w);
 	int getWindows();
-	void setRooms(int r);	
+	void setRooms(int r);
 	int getRooms();
 	void setFloors(int f);
-	int getFloors(); 
-	
+	int getFloors();
+
 private:
 	int employee = 700;
 	int rent;
@@ -126,18 +126,18 @@ int main()
 	building.Price();
 
 
-	/*Перегрузка оператора присвоєння*/
-	MyArray ArrayInt(5);    //создаем объект класса и записываем в него данные
+	/*пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ*/
+	MyArray ArrayInt(5);    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 	ArrayInt[0] = 1;
 	ArrayInt[1] = 5;
 	ArrayInt[2] = 2;
 	ArrayInt[3] = 6;
 	ArrayInt[4] = 8;
 
-	MyArray ArrayInt2(10); // третий объект класса с массивом из 10 элементов
+	MyArray ArrayInt2(10); // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ 10 пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	cout << "Array ArrayInt2: ";
 	ArrayInt2.showData();
-	ArrayInt2 = ArrayInt; // копируем массив из ArrayInt в ArrayInt3
+	ArrayInt2 = ArrayInt; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ ArrayInt пїЅ ArrayInt3
 	cout << "Array ArrayInt2 after copy: \n";
 	ArrayInt2.showData();
 

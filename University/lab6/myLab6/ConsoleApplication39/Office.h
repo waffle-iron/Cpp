@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 #include "Home.h"
 
 class Office : public Home
@@ -25,6 +24,7 @@ public:
 	int Office::getDoors() {
 		return nDoors;
 	}
+
 
 	void Office::setWindows(int w) {
 		nWindows = w;
@@ -55,5 +55,3 @@ private:
 	int capacity = 5000;
 	char* nameCompany;
 };
-=======
->>>>>>> Stashed changes

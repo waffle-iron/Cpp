@@ -1,5 +1,4 @@
 #include<iostream>
-#include<conio.h>
 #include<cstring>
 #include<iomanip>
 enum colors{green, red, yellow, black};
@@ -108,7 +107,7 @@ public:
 int main()
 {
 	int ans = 6;
-	CodeLockDoor d1; 
+	CodeLockDoor d1;
 	d1.setcode();
 	while (ans != 5)
 	{
