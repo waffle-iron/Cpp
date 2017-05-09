@@ -1,4 +1,5 @@
 #include<iostream>
+#include <string>
 #include "Customer.h"
 #include "Order.h"
 #include "Agreement.h"
@@ -7,20 +8,23 @@ using namespace std;
 
 int main()
 {
-    cout << endl << "------------\\create Shopping Leisure Centre C-----------------";
+    cout << endl << "------------\\create Customer C-----------------";
     cout << endl << "--------------\\use function showinfo() for C-------------------";
     Customer C;
-    C.setfloors(10);
-    C.setcapacity(100);
+    C.setMoney(10);
+    C.setName("Vova");
+    C.setSurame("Zubrytskyi");
     C.showinfo();
-    cout << endl << "------------\\create Shopping Leisure Centre C1-----------------";
+    C.Adjustments();
+    cout << endl << "------------\\create Operator C1-----------------";
     cout << endl << "--------------\\use function showinfo() for C1-------------------";
     Operator C1;
-    C1.setfloors(5);
-    C1.setcapacity(500);
-    C1.setshops(56);
-    C1.setattractions(36);
-    C1.setcafes(12);
+    C1.setMoney(5);
+    C1.setName("Volodymyr");
+    C1.setSurame("Zubrytskyi");
+    //C1.setPrices(36);
+    C1.setTarget("TestTarger");
+
     C1.showinfo();
 
     return 0;
