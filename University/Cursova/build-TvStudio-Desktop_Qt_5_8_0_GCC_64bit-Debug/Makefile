@@ -50,10 +50,12 @@ OBJECTS_DIR   = ./
 
 SOURCES       = ../../Coursework/TvStudio/main.cpp \
 		../../Coursework/TvStudio/Adjustments.cpp \
-		../../Coursework/TvStudio/Agreement.cpp 
+		../../Coursework/TvStudio/Agreement.cpp \
+		../../Coursework/TvStudio/WriterCustomerList.cpp 
 OBJECTS       = main.o \
 		Adjustments.o \
-		Agreement.o
+		Agreement.o \
+		WriterCustomerList.o
 DIST          = /opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/spec_pre.prf \
 		/opt/Qt5.8.0/5.8/gcc_64/mkspecs/common/unix.conf \
 		/opt/Qt5.8.0/5.8/gcc_64/mkspecs/common/linux.conf \
@@ -223,7 +225,8 @@ DIST          = /opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/spec_pre.prf \
 		Agreement.h \
 		Operator.h ../../Coursework/TvStudio/main.cpp \
 		../../Coursework/TvStudio/Adjustments.cpp \
-		../../Coursework/TvStudio/Agreement.cpp
+		../../Coursework/TvStudio/Agreement.cpp \
+		../../Coursework/TvStudio/WriterCustomerList.cpp
 QMAKE_TARGET  = TvStudio
 DESTDIR       = 
 TARGET        = TvStudio
@@ -620,6 +623,9 @@ Adjustments.o: ../../Coursework/TvStudio/Adjustments.cpp ../../Coursework/TvStud
 
 Agreement.o: ../../Coursework/TvStudio/Agreement.cpp ../../Coursework/TvStudio/Customer.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Agreement.o ../../Coursework/TvStudio/Agreement.cpp
+
+WriterCustomerList.o: ../../Coursework/TvStudio/WriterCustomerList.cpp ../../Coursework/TvStudio/Customer.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o WriterCustomerList.o ../../Coursework/TvStudio/WriterCustomerList.cpp
 
 ####### Install
 

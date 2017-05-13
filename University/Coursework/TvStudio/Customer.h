@@ -11,7 +11,8 @@ protected:
 public:
   void Adjustments();
   void Agreements();
-   Customer()
+  void writeOrderList();
+  Customer()
     {
         money = new int;
         (*money) = 0;

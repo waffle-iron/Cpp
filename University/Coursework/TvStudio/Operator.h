@@ -6,13 +6,11 @@ using namespace std;
 class Operator : public Agreement,public Order
 {
 public:
-    int cafes;
     int ID;
-public:
+
     Operator()
     {
         (*money) = 0;
-        cafes = 0;
         ID = 0;
     }
 

@@ -14,7 +14,7 @@ protected:
 public:
     Order()
     {
-        (*money) = 0; price = 0; ID;
+        (*money) = 0; price = 0; ID = 0;
     }
 
     void setID(int idOrd)

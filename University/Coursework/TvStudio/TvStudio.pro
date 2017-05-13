@@ -5,7 +5,8 @@ CONFIG -= qt
 
 SOURCES += main.cpp \
     Adjustments.cpp \
-    Agreement.cpp
+    Agreement.cpp \
+    WriterCustomerList.cpp
 
 HEADERS += \
     Customer.h \

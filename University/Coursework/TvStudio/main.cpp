@@ -1,13 +1,54 @@
-#include<iostream>
+#include <iostream>
 #include <string>
+#include <stdlib.h>
 #include "Customer.h"
 #include "Order.h"
 #include "Agreement.h"
 #include "Operator.h"
 using namespace std;
 
+Order list;
+
+
 int main()
+
+
 {
+     int r;
+do
+    {
+    cout << "\nSelect role:\n1.Order\n2.Operator\n";
+    cin >> r;
+switch (r) {
+case 1:
+    /*Function for order*/
+list.writeOrderList();
+    break;
+
+//case 2:
+    /*Function for operator*/
+//    break;
+default:
+    cout <<"Incorrect selection,try again!";
+    break;
+}
+//system ("clear");
+    }
+    while(r != 1 && r != 2);
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
     cout << endl << "------------\\create Customer C-----------------";
     cout << endl << "--------------\\use function showinfo() for C-------------------";
     Customer C;
@@ -27,5 +68,7 @@ int main()
 
     C1.showinfo();
 
+    list.getName();
+    list.showinfo();*/
     return 0;
 }
