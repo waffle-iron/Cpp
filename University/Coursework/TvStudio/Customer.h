@@ -11,7 +11,10 @@ protected:
 public:
   void Adjustments();
   void Agreements();
-  void writeOrderList();
+  void WriteOrderList();
+  void WriteCustomerInfo();
+  void WriteUserInfo();
+
   Customer()
     {
         money = new int;
@@ -20,6 +23,11 @@ public:
     void setMoney(int f)
     {
         (*money) = f;
+    }
+
+    int getMoney()
+    {
+    return (*money);
     }
 
     string getName()
@@ -35,6 +43,11 @@ public:
     void setSurame(string s)
     {
         surname = s;
+    }
+
+    string getSurame()
+    {
+        return surname;
     }
 
     virtual void showinfo()

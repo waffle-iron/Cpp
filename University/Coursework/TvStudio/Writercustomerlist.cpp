@@ -4,11 +4,9 @@
 
 using namespace std;
 Customer agreementwrt;
-void Customer::writeOrderList(){
+void Customer::WriteOrderList(){
    int ord;
-   string myname;
-   string mysurname;
-   int balance;
+
     do
            {
            cout << "\nSelect action:\n1.Add information about me.\n2.Make agreements.\n"
@@ -16,16 +14,7 @@ void Customer::writeOrderList(){
            cin >> ord;
        switch (ord) {
        case 1:
-        cout << "\nYou name: ";
-        cin >> myname;
-        Customer::setName(myname);
-        cout << "\nYou surname: ";
-        cin >> mysurname;
-        Customer::setSurame(mysurname);
-        cout << "\nYour Balance($): " ;
-        cin >> balance;
-        Customer::setMoney(balance);
-        cout << endl;
+      agreementwrt.WriteCustomerInfo();
            break;
 
        case 2:

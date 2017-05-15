@@ -12,10 +12,10 @@ MAKEFILE      = Makefile
 
 CC            = gcc
 CXX           = g++
-DEFINES       = -DQT_QML_DEBUG
-CFLAGS        = -pipe -g -Wall -W -fPIC $(DEFINES)
-CXXFLAGS      = -pipe -g -std=gnu++11 -Wall -W -fPIC $(DEFINES)
-INCPATH       = -I../TvStudio -I. -I/opt/Qt5.8.0/5.8/gcc_64/mkspecs/linux-g++
+DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_CORE_LIB
+CFLAGS        = -pipe -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
+CXXFLAGS      = -pipe -g -std=gnu++11 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
+INCPATH       = -I../TvStudio -I. -I/opt/Qt5.8.0/5.8/gcc_64/include -I/opt/Qt5.8.0/5.8/gcc_64/include/QtCore -I. -I/opt/Qt5.8.0/5.8/gcc_64/mkspecs/linux-g++
 QMAKE         = /opt/Qt5.8.0/5.8/gcc_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -33,10 +33,10 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = TvStudio1.0.0
-DISTDIR = /home/volodymyr/Desktop/GitHub/Cpp/University/Cursova/build-TvStudio-Desktop_Qt_5_8_0_GCC_64bit-Debug/.tmp/TvStudio1.0.0
+DISTDIR = /home/volodymyr/Desktop/GitHub/build-TvStudio-Desktop_Qt_5_8_0_GCC_64bit-Debug/.tmp/TvStudio1.0.0
 LINK          = g++
-LFLAGS        = 
-LIBS          = $(SUBLIBS)  
+LFLAGS        = -Wl,-rpath,/opt/Qt5.8.0/5.8/gcc_64/lib
+LIBS          = $(SUBLIBS) -L/opt/Qt5.8.0/5.8/gcc_64/lib -lQt5Core -lpthread 
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -48,8 +48,14 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../TvStudio/main.cpp 
-OBJECTS       = main.o
+SOURCES       = ../TvStudio/main.cpp \
+		../TvStudio/Adjustments.cpp \
+		../TvStudio/Agreement.cpp \
+		../TvStudio/Writercustomerlist.cpp 
+OBJECTS       = main.o \
+		Adjustments.o \
+		Agreement.o \
+		Writercustomerlist.o
 DIST          = /opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/spec_pre.prf \
 		/opt/Qt5.8.0/5.8/gcc_64/mkspecs/common/unix.conf \
 		/opt/Qt5.8.0/5.8/gcc_64/mkspecs/common/linux.conf \
@@ -208,16 +214,23 @@ DIST          = /opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/spec_pre.prf \
 		/opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/default_post.prf \
 		/opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/qml_debug.prf \
 		/opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/warn_on.prf \
+		/opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/qt.prf \
+		/opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/resources.prf \
+		/opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/moc.prf \
+		/opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/unix/thread.prf \
 		/opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/qmake_use.prf \
 		/opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/file_copies.prf \
 		/opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/testcase_targets.prf \
 		/opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/exceptions.prf \
 		/opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/yacc.prf \
 		/opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/lex.prf \
-		../TvStudio/TvStudio.pro Customer.h \
-		Order.h \
-		Agreement.h \
-		Operator.h ../TvStudio/main.cpp
+		../TvStudio/TvStudio.pro ../TvStudio/Agreement.h \
+		../TvStudio/Customer.h \
+		../TvStudio/Operator.h \
+		../TvStudio/Order.h ../TvStudio/main.cpp \
+		../TvStudio/Adjustments.cpp \
+		../TvStudio/Agreement.cpp \
+		../TvStudio/Writercustomerlist.cpp
 QMAKE_TARGET  = TvStudio
 DESTDIR       = 
 TARGET        = TvStudio
@@ -387,13 +400,18 @@ Makefile: ../TvStudio/TvStudio.pro /opt/Qt5.8.0/5.8/gcc_64/mkspecs/linux-g++/qma
 		/opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/default_post.prf \
 		/opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/qml_debug.prf \
 		/opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/warn_on.prf \
+		/opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/qt.prf \
+		/opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/resources.prf \
+		/opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/moc.prf \
+		/opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/unix/thread.prf \
 		/opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/qmake_use.prf \
 		/opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/file_copies.prf \
 		/opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/testcase_targets.prf \
 		/opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/exceptions.prf \
 		/opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/yacc.prf \
 		/opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/lex.prf \
-		../TvStudio/TvStudio.pro
+		../TvStudio/TvStudio.pro \
+		/opt/Qt5.8.0/5.8/gcc_64/lib/libQt5Core.prl
 	$(QMAKE) -o Makefile ../TvStudio/TvStudio.pro -spec linux-g++ CONFIG+=debug CONFIG+=qml_debug
 /opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/spec_pre.prf:
 /opt/Qt5.8.0/5.8/gcc_64/mkspecs/common/unix.conf:
@@ -553,6 +571,10 @@ Makefile: ../TvStudio/TvStudio.pro /opt/Qt5.8.0/5.8/gcc_64/mkspecs/linux-g++/qma
 /opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/default_post.prf:
 /opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/qml_debug.prf:
 /opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/warn_on.prf:
+/opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/qt.prf:
+/opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/resources.prf:
+/opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/moc.prf:
+/opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/unix/thread.prf:
 /opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/qmake_use.prf:
 /opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/file_copies.prf:
 /opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/testcase_targets.prf:
@@ -560,6 +582,7 @@ Makefile: ../TvStudio/TvStudio.pro /opt/Qt5.8.0/5.8/gcc_64/mkspecs/linux-g++/qma
 /opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/yacc.prf:
 /opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/lex.prf:
 ../TvStudio/TvStudio.pro:
+/opt/Qt5.8.0/5.8/gcc_64/lib/libQt5Core.prl:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ../TvStudio/TvStudio.pro -spec linux-g++ CONFIG+=debug CONFIG+=qml_debug
 
@@ -574,6 +597,9 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
+	$(COPY_FILE) --parents /opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../TvStudio/Agreement.h ../TvStudio/Customer.h ../TvStudio/Operator.h ../TvStudio/Order.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../TvStudio/main.cpp ../TvStudio/Adjustments.cpp ../TvStudio/Agreement.cpp ../TvStudio/Writercustomerlist.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -589,25 +615,100 @@ distclean: clean
 
 ####### Sub-libraries
 
+mocclean: compiler_moc_header_clean compiler_moc_source_clean
+
+mocables: compiler_moc_header_make_all compiler_moc_source_make_all
+
 check: first
 
 benchmark: first
 
+compiler_rcc_make_all:
+compiler_rcc_clean:
+compiler_moc_predefs_make_all: moc_predefs.h
+compiler_moc_predefs_clean:
+	-$(DEL_FILE) moc_predefs.h
+moc_predefs.h: /opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/data/dummy.cpp
+	g++ -pipe -g -std=gnu++11 -Wall -W -dM -E -o moc_predefs.h /opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/data/dummy.cpp
+
+compiler_moc_header_make_all:
+compiler_moc_header_clean:
+compiler_moc_source_make_all:
+compiler_moc_source_clean:
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
 compiler_yacc_impl_make_all:
 compiler_yacc_impl_clean:
 compiler_lex_make_all:
 compiler_lex_clean:
-compiler_clean: 
+compiler_clean: compiler_moc_predefs_clean 
 
 ####### Compile
 
-main.o: ../TvStudio/main.cpp ../TvStudio/Customer.h \
+main.o: ../TvStudio/main.cpp /opt/Qt5.8.0/5.8/gcc_64/include/QtCore/QCoreApplication \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qglobal.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qconfig.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qtcore-config.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qsystemdetection.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qprocessordetection.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qcompilerdetection.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qtypeinfo.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qsysinfo.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qlogging.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qflags.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qtypetraits.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qatomic.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qbasicatomic.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qgenericatomic.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qatomic_msvc.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qglobalstatic.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qmutex.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qnumeric.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qversiontagging.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qstring.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qchar.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qbytearray.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qrefcount.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qnamespace.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qarraydata.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qstringbuilder.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qobject.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qobjectdefs.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qlist.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qalgorithms.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qiterator.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qhashfunctions.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qpair.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qbytearraylist.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qstringlist.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qregexp.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qstringmatcher.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qcoreevent.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qscopedpointer.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qmetatype.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qvarlengtharray.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qcontainerfwd.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qobject_impl.h \
+		/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qeventloop.h \
+		../TvStudio/Customer.h \
 		../TvStudio/Order.h \
 		../TvStudio/Agreement.h \
 		../TvStudio/Operator.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../TvStudio/main.cpp
+
+Adjustments.o: ../TvStudio/Adjustments.cpp ../TvStudio/Customer.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Adjustments.o ../TvStudio/Adjustments.cpp
+
+Agreement.o: ../TvStudio/Agreement.cpp ../TvStudio/Customer.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Agreement.o ../TvStudio/Agreement.cpp
+
+Writercustomerlist.o: ../TvStudio/Writercustomerlist.cpp ../TvStudio/Customer.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Writercustomerlist.o ../TvStudio/Writercustomerlist.cpp
 
 ####### Install
 

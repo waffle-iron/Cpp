@@ -1,4 +1,7 @@
-
+#include <QCoreApplication>
+#include <QFile> //Подключаем для работы с классом QFile
+#include <QTextStream>
+#include <QDebug>
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -6,13 +9,32 @@
 
 using namespace std;
 
+
+void Read(QString Category)
+{
+QFile mFile(Category);
+
+if(!mFile.open((QFile::ReadOnly | QFile::Text)))
+{
+    qDebug() << "Could not open file for writing";
+    return;
+}
+
+QTextStream in(&mFile);
+while (!in.atEnd())
+{
+QString mText = in.readLine();
+qDebug() << mText;
+}
+mFile.close();
+
+}
+
+
 void Customer::Agreements(){
     cout << "Select a category:";
-   ifstream f("file.txt");
-   for (int i = 0; i < 10; ++i)
-    {
-   int  v;
-    f >> v;
-    cout << v << endl;
-   }
-}
+    QString Category = "Category.txt";
+    Read(Category);
+      }
+
+

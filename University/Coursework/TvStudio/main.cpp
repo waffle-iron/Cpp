@@ -22,7 +22,7 @@ do
 switch (r) {
 case 1:
     /*Function for order*/
-list.writeOrderList();
+list.WriteOrderList();
     break;
 
 //case 2:
