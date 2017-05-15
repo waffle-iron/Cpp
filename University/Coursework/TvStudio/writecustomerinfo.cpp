@@ -1,69 +1,21 @@
-#include <QCoreApplication>
-#include <QFile> //Подключаем для работы с классом QFile
-#include <QTextStream>
-#include <QDebug>
 #include <iostream>
+#include <fstream>
 #include <string>
-#include <fstream>
+#include <stdlib.h>
 #include "Customer.h"
-   Customer infoUsr;
-
-
-#include <fstream>
-#include <iostream>
-#include <cstring>
-
-void Customer::WriteUserInfo()
-{
-
-    int money;
-    string name;
-    string surname;
-    name = infoUsr.getName();
-    surname = infoUsr.getSurame();
-    money = infoUsr.getMoney();
-
-    ofstream fin("Orderlist.txt");
-
-
-    fin << "1."<< name <<"\t2." << surname << "\t3." << money;
-    fin << endl;
-
-    fin.close();
-}
-
-
-
 
 using namespace std;
 
-string myname;
-string mysurname;
-int balance;
 
-
-/*void WriteUserInfo(QString FilenameOrd)
-{
-QFile cusFile(FilenameOrd);
-
-if(!cusFile.open((QFile::WriteOnly | QFile::Text)))
-{
-    qDebug() << "Could not open file for writing";
-    return;
-}
-
-QTextStream out(&cusFile);
-out << cusFile.getName() << "1."<< infoUsr.getName() <<"\t2." << infoUsr.getSurame() << "\t3." << infoUsr.getMoney() ;
-cusFile.flush();
-cusFile.close();
-}
-*/
+ Customer infoUsr;
 
 void Customer::WriteCustomerInfo()
 {
-    //Customer infoUsr;
-   // QString Filename = "Orderlist.txt";
-   WriteUserInfo();
+    srand(time(0));
+    int ID = rand()%101;
+    string myname;
+    string mysurname;
+    int balance;
 
     cout << "\nYou name: ";
     cin >> myname;
@@ -75,4 +27,13 @@ void Customer::WriteCustomerInfo()
     cin >> balance;
    infoUsr.setMoney(balance);
     cout << endl;
+
+    ofstream OrderList;
+    OrderList.open("Orderlist.txt", ios::app);
+    OrderList << endl << ID << "     " << infoUsr.getName() << "                " << infoUsr.getSurame()
+              << "                    " << infoUsr.getMoney();
+    OrderList.close();
+
+
 }
+

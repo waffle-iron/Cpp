@@ -40,14 +40,6 @@ default:
 
 
 
-
-
-
-
-
-
-
-
 /*
     cout << endl << "------------\\create Customer C-----------------";
     cout << endl << "--------------\\use function showinfo() for C-------------------";

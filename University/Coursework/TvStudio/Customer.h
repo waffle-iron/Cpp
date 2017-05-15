@@ -15,6 +15,8 @@ public:
   void WriteCustomerInfo();
   void WriteUserInfo();
 
+
+
   Customer()
     {
         money = new int;
