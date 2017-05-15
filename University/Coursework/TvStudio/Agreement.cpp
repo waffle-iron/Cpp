@@ -32,7 +32,7 @@ mFile.close();
 
 
 void Customer::Agreements(){
-    cout << "Select a category:";
+    cout << "\nSelect a category:";
     QString Category = "Category.txt";
     Read(Category);
       }

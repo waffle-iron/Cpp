@@ -14,29 +14,42 @@ int main()
 
 
 {
-     int r;
-do
+    cout <<"*************************Welcome to the TV program*****************************";
+    int r;
+    while (true) {
+    do
     {
-    cout << "\nSelect role:\n1.Order\n2.Operator\n";
+    cout << "\nSelect role:\n1.Order\n2.Operator\n3.Exit\n";
     cin >> r;
+
 switch (r) {
 case 1:
+    system ("clear");
     /*Function for order*/
 list.WriteOrderList();
+
     break;
 
 //case 2:
     /*Function for operator*/
 //    break;
+
+case 3:
+
+    break;
+
 default:
+    system ("clear");
     cout <<"Incorrect selection,try again!";
     break;
 }
+
 //system ("clear");
     }
-    while(r != 1 && r != 2);
-
-
+    while(r != 1 && r != 2 && r != 3);
+if(r == 3)
+    break;
+    }
 
 
 

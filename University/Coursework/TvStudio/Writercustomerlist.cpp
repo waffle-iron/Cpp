@@ -14,10 +14,12 @@ void Customer::WriteOrderList(){
            cin >> ord;
        switch (ord) {
        case 1:
+           system ("clear");
       agreementwrt.WriteCustomerInfo();
            break;
 
        case 2:
+           system ("clear");
 cout << "\nBy print \'y\', you agree to TvStudio User Agreement, Provacy Policy.\n";
     char y;
     cin >> y;
@@ -25,7 +27,6 @@ cout << "\nBy print \'y\', you agree to TvStudio User Agreement, Provacy Policy.
     {
         /*Agriment function*/
         agreementwrt.Agreements();
-        cout << "You don't have error\n";
     }
            break;
        default:
