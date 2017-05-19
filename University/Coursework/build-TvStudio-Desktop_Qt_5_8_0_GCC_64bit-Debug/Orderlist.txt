@@ -1,5 +1,8 @@
 |ID|********Name********|*********Surname**********|******Money********|
 
-62     Volodymyr                Zubrytskyi                    500
+62     Volodymyr                Zubrytskyi                    $500
 
-23     Volodymyr                Zubrytskyi                    439
+23     Volodymyr                Zubrytskyi                    $439
+
+11     Volodymyr                Zubrytskyi                    $5000
+69     Mariia                Zubrutskyi                    $244

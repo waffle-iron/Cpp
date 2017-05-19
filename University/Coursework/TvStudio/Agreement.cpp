@@ -32,9 +32,17 @@ mFile.close();
 
 
 void Customer::Agreements(){
+   int categ;
+    do{
     cout << "\nSelect a category:";
     QString Category = "Category.txt";
     Read(Category);
+    cin >> categ;
+    if (categ < 1 || categ > 7)
+        system("clear");
+    cout << "Entered not offered,try againe!\n";
+    }
+    while(categ < 1 || categ > 7);
       }
 
 
