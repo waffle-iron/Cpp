@@ -5,9 +5,11 @@ using namespace std;
 class Customer
 {
 protected:
-    int (*money);
+    int money;
    string  name;
    string surname;
+   string nameTvProgram;
+
 public:
   void Adjustments();
   void Agreements();
@@ -16,20 +18,24 @@ public:
   void WriteUserInfo();
 
 
+  void setNameTvProgram(string ntvp)
+  {
+      nameTvProgram = ntvp;
+  }
 
-  Customer()
+  string getNameTvProgram()
     {
-        money = new int;
-        (*money) = 0;
+        return nameTvProgram;
     }
+
     void setMoney(int f)
     {
-        (*money) = f;
+       money = f;
     }
 
     int getMoney()
     {
-    return (*money);
+    return money;
     }
 
     string getName()
@@ -52,13 +58,12 @@ public:
         return surname;
     }
 
+
+
     virtual void showinfo()
     {
-        cout << endl << "Money: " << (*money) << endl << "Name: " << name << endl
+        cout << endl << "Money: " << money << endl << "Name: " << name << endl
              << "Surname: " << surname ;
     }
-    ~Customer()
-    {
-        delete money;
-    }
+
 };

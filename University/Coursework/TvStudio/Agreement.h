@@ -13,7 +13,7 @@ protected:
 public:
     Agreement()
     {
-        (*money) = 0; price = 0; ID = 1;
+        money = 0; price = 0; ID = 1;
 
     }
 

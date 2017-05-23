@@ -3,6 +3,4 @@
 
 79     Volodymyr                Zubrytskyi                    5000
 78     Igor                Molodchenco                    12234
-65     Roman                Veseliak                    12345
-73     Test                Test                    232332
-24     sasdas                asdasd                    2313
+65     Roman                Veseliak                    200000

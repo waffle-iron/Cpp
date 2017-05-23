@@ -5,6 +5,9 @@
 #include "Order.h"
 #include "Agreement.h"
 #include "Operator.h"
+
+#include <fstream>
+#include "ShowOneLine.h"
 using namespace std;
 
 Order list;
@@ -30,9 +33,11 @@ list.WriteOrderList();
 
     break;
 
-//case 2:
+
+case 2:
     /*Function for operator*/
-//    break;
+
+    break;
 
 case 3:
 
@@ -50,7 +55,6 @@ default:
 if(r == 3)
     break;
     }
-
 
 
 /*

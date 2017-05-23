@@ -11,10 +11,11 @@ protected:
     string target;
     string nameTvProgram;
 
+
 public:
     Order()
     {
-        (*money) = 0; price = 0; ID = 0;
+        money = 0; price = 0; ID = 0;
     }
 
     void setID(int idOrd)
@@ -48,6 +49,11 @@ public:
         price = pr;
     }
 
+    int getPrices()
+    {
+        return price;
+    }
+
    string getTarget()
    {
        return target;
@@ -67,7 +73,6 @@ public:
    {
     nameTvProgram= ntv;
    }
-
 
 
     virtual void showinfo()

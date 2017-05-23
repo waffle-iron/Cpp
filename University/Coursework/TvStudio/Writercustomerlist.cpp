@@ -1,8 +1,11 @@
 /*Function for Customer*/
 #include "Customer.h"
+#include "ShowOneLine.h"
 #include <iostream>
+#include <fstream>
 
 using namespace std;
+ShowOneLine line;
 Customer agreementwrt;
 void Customer::WriteOrderList(){
    int ord;
@@ -27,7 +30,19 @@ cout << "\nBy print \'y\', you agree to TvStudio User Agreement, Provacy Policy.
     {
         /*Agriment function*/
         agreementwrt.Agreements();
+
     }
+           break;
+
+       case 3:
+           cout << "\nYou information:" ;
+           line.LastLineOrderlist();
+           cout << endl << "    \t";
+           line.intLastLineOrdList();
+
+
+           agreementwrt.Adjustments();
+
            break;
        default:
            cout <<"Incorrect selection,try again!";

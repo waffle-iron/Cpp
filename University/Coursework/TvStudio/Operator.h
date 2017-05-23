@@ -2,7 +2,6 @@
 #include <string>
 using namespace std;
 
-
 class Operator : public Agreement,public Order
 {
 public:
@@ -10,7 +9,7 @@ public:
 
     Operator()
     {
-        (*money) = 0;
+        money = 0;
         ID = 0;
     }
 
@@ -38,6 +37,7 @@ public:
     {
         ID = idOrd;
     }
+
 
 
     virtual void showinfo()

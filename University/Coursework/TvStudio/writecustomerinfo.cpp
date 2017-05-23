@@ -26,14 +26,19 @@ void Customer::WriteCustomerInfo()
     cout << "\nYour Balance($): " ;
     cin >> balance;
    infoUsr.setMoney(balance);
+
     cout << endl;
 
     ofstream OrderList;
     OrderList.open("Orderlist.txt", ios::app);
+    //OrderList.open("Orderlist1.txt", ios::app);
     OrderList << endl << ID << "     " << infoUsr.getName() << "                " << infoUsr.getSurame()
               << "                    " << infoUsr.getMoney();
     OrderList.close();
 
-
+    ofstream Bank;
+    Bank.open("Bank.txt");
+    Bank << infoUsr.getSurame() << " " << infoUsr.getMoney();
+    Bank.close();
 }
 
