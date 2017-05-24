@@ -1,0 +1,12 @@
+********* Start testing of Test *********
+Config: Using QtTest library 5.8.0, Qt 5.8.0 (x86_64-little_endian-lp64 shared (dynamic) release build; by GCC 5.3.1 20160406 (Red Hat 5.3.1-6))
+PASS   : Test::initTestCase()
+PASS   : Test::IsMoneyUser()
+PASS   : Test::StringUsrName()
+PASS   : Test::StringUsrSurname()
+FAIL!  : Test::NameTvPrograms() 'A.getSurame() == "Test"' returned FALSE. ()
+   Loc: [../TvStudio/Test.cpp(45)]
+PASS   : Test::ID()
+PASS   : Test::cleanupTestCase()
+Totals: 6 passed, 1 failed, 0 skipped, 0 blacklisted, 1ms
+********* Finished testing of Test *********

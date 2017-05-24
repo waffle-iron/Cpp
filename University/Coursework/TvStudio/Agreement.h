@@ -25,6 +25,11 @@ public:
         ID = idOrd;
     }
 
+   int getID()
+   {
+       return ID;
+   }
+
     string getName()
     {
         return name;

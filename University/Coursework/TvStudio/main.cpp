@@ -1,16 +1,21 @@
+#include <QApplication>
+#include <QTest>
+#include <cstdlib>
+#include <cstdio>
 #include <iostream>
 #include "Customer.h"
 #include "Order.h"
 #include "Agreement.h"
 #include "Operator.h"
 #include "ShowOneLine.h"
+#include "Test.h"
 
 using namespace std;
 
-Order list;
+Order lists;
 Operator change;
 
-int main()
+int main(int argc, char *argv[])
 {
     cout <<"*************************Welcome to the TV program*****************************";
     int r;
@@ -25,7 +30,7 @@ switch (r) {
 case 1:
     /*Function for order*/
     system ("clear");
-list.WriteOrderList();
+lists.WriteOrderList();
 
     break;
 
@@ -67,5 +72,9 @@ default:
 if(r == 3)
     break;
     }
+    freopen("testing.log", "w", stdout);
+    QTest::qExec(new Test, argc, argv);
+
     return 0;
 }
+

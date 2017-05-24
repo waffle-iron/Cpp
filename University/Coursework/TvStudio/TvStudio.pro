@@ -1,6 +1,6 @@
 QT += core
 QT -= gui
-
+QT += widgets testlib
 CONFIG += c++11
 
 TARGET = TvStudio
@@ -16,7 +16,9 @@ SOURCES += main.cpp \
     PriceChange.cpp \
     ShowAllFile.cpp \
     WriteCustomerInfo.cpp \
-    WriteOrderList.cpp
+    WriteOrderList.cpp \
+    Test.cpp
+
 
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which as been marked deprecated (the exact warnings
@@ -35,4 +37,9 @@ HEADERS += \
     Operator.h \
     Order.h \
     MakeSomeChanges.h \
-    ShowOneLine.h
+    ShowOneLine.h \
+    Test.h
+
+# install
+target.path = $$[QT_INSTALL_EXAMPLES]/qtestlib/tutorial1
+INSTALLS += target
