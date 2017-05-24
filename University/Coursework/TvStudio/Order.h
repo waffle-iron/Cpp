@@ -1,3 +1,6 @@
+#ifndef ORDER_H
+#define ORDER_H
+#include "Customer.h"
 #include<iostream>
 #include <string>
 using namespace std;
@@ -7,8 +10,6 @@ class Order : virtual public Customer
 protected:
     int ID;
     int price;
-    int deadline;
-    string target;
     string nameTvProgram;
 
 
@@ -22,17 +23,6 @@ public:
     {
         ID = idOrd;
     }
-
-   int getDateOfDeadline()
-   {
-    return  deadline;
-   }
-
-   void setDateOfDeadline(int DofDl)
-   {
-    deadline = DofDl;
-   }
-
 
     string getName()
     {
@@ -54,16 +44,6 @@ public:
         return price;
     }
 
-   string getTarget()
-   {
-       return target;
-   }
-
-   void setTarget(string tr)
-   {
-    target = tr;
-   }
-
    string getNameTvProgram()
    {
        return nameTvProgram;
@@ -73,11 +53,5 @@ public:
    {
     nameTvProgram= ntv;
    }
-
-
-    virtual void showinfo()
-    {
-        Customer::showinfo();
-        cout << "price: " << price << endl << "target: " << target;
-    }
 };
+#endif

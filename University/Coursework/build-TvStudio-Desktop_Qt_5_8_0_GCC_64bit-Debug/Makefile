@@ -51,15 +51,19 @@ OBJECTS_DIR   = ./
 SOURCES       = ../TvStudio/main.cpp \
 		../TvStudio/Adjustments.cpp \
 		../TvStudio/Agreement.cpp \
-		../TvStudio/Writercustomerlist.cpp \
-		../TvStudio/writecustomerinfo.cpp \
-		../TvStudio/ShowOneLine.cpp 
+		../TvStudio/ShowOneLine.cpp \
+		../TvStudio/PriceChange.cpp \
+		../TvStudio/ShowAllFile.cpp \
+		../TvStudio/WriteCustomerInfo.cpp \
+		../TvStudio/WriteOrderList.cpp 
 OBJECTS       = main.o \
 		Adjustments.o \
 		Agreement.o \
-		Writercustomerlist.o \
-		writecustomerinfo.o \
-		ShowOneLine.o
+		ShowOneLine.o \
+		PriceChange.o \
+		ShowAllFile.o \
+		WriteCustomerInfo.o \
+		WriteOrderList.o
 DIST          = /opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/spec_pre.prf \
 		/opt/Qt5.8.0/5.8/gcc_64/mkspecs/common/unix.conf \
 		/opt/Qt5.8.0/5.8/gcc_64/mkspecs/common/linux.conf \
@@ -236,9 +240,11 @@ DIST          = /opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/spec_pre.prf \
 		../TvStudio/ShowOneLine.h ../TvStudio/main.cpp \
 		../TvStudio/Adjustments.cpp \
 		../TvStudio/Agreement.cpp \
-		../TvStudio/Writercustomerlist.cpp \
-		../TvStudio/writecustomerinfo.cpp \
-		../TvStudio/ShowOneLine.cpp
+		../TvStudio/ShowOneLine.cpp \
+		../TvStudio/PriceChange.cpp \
+		../TvStudio/ShowAllFile.cpp \
+		../TvStudio/WriteCustomerInfo.cpp \
+		../TvStudio/WriteOrderList.cpp
 QMAKE_TARGET  = TvStudio
 DESTDIR       = 
 TARGET        = TvStudio
@@ -607,7 +613,7 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /opt/Qt5.8.0/5.8/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../TvStudio/Agreement.h ../TvStudio/Customer.h ../TvStudio/Operator.h ../TvStudio/Order.h ../TvStudio/MakeSomeChanges.h ../TvStudio/ShowOneLine.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../TvStudio/main.cpp ../TvStudio/Adjustments.cpp ../TvStudio/Agreement.cpp ../TvStudio/Writercustomerlist.cpp ../TvStudio/writecustomerinfo.cpp ../TvStudio/ShowOneLine.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../TvStudio/main.cpp ../TvStudio/Adjustments.cpp ../TvStudio/Agreement.cpp ../TvStudio/ShowOneLine.cpp ../TvStudio/PriceChange.cpp ../TvStudio/ShowAllFile.cpp ../TvStudio/WriteCustomerInfo.cpp ../TvStudio/WriteOrderList.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -736,15 +742,24 @@ Agreement.o: ../TvStudio/Agreement.cpp /opt/Qt5.8.0/5.8/gcc_64/include/QtCore/QC
 		../TvStudio/Customer.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Agreement.o ../TvStudio/Agreement.cpp
 
-Writercustomerlist.o: ../TvStudio/Writercustomerlist.cpp ../TvStudio/Customer.h \
-		../TvStudio/ShowOneLine.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Writercustomerlist.o ../TvStudio/Writercustomerlist.cpp
-
-writecustomerinfo.o: ../TvStudio/writecustomerinfo.cpp ../TvStudio/Customer.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o writecustomerinfo.o ../TvStudio/writecustomerinfo.cpp
-
 ShowOneLine.o: ../TvStudio/ShowOneLine.cpp ../TvStudio/ShowOneLine.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ShowOneLine.o ../TvStudio/ShowOneLine.cpp
+
+PriceChange.o: ../TvStudio/PriceChange.cpp ../TvStudio/Operator.h \
+		../TvStudio/Agreement.h \
+		../TvStudio/Customer.h \
+		../TvStudio/Order.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o PriceChange.o ../TvStudio/PriceChange.cpp
+
+ShowAllFile.o: ../TvStudio/ShowAllFile.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ShowAllFile.o ../TvStudio/ShowAllFile.cpp
+
+WriteCustomerInfo.o: ../TvStudio/WriteCustomerInfo.cpp ../TvStudio/Customer.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o WriteCustomerInfo.o ../TvStudio/WriteCustomerInfo.cpp
+
+WriteOrderList.o: ../TvStudio/WriteOrderList.cpp ../TvStudio/Customer.h \
+		../TvStudio/ShowOneLine.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o WriteOrderList.o ../TvStudio/WriteOrderList.cpp
 
 ####### Install
 

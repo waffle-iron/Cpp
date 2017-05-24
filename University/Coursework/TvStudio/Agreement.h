@@ -1,5 +1,9 @@
+#ifndef AGREEMENT_H
+#define AGREEMENT_H
+
 #include<iostream>
 #include <string>
+#include "Customer.h"
 using namespace std;
 
 
@@ -8,7 +12,6 @@ class Agreement:virtual public Customer
 protected:
     int ID;
     int price;
-     int deadline;
      string nameTvProgram;
 public:
     Agreement()
@@ -21,17 +24,6 @@ public:
     {
         ID = idOrd;
     }
-
-   int getDateOfDeadline()
-   {
-    return  deadline;
-   }
-
-   void setDateOfDeadline(int DofDl)
-   {
-    deadline = DofDl;
-   }
-
 
     string getName()
     {
@@ -48,8 +40,6 @@ public:
         price = pr;
     }
 
-
-
    string getNameTvProgram()
    {
        return nameTvProgram;
@@ -59,14 +49,5 @@ public:
    {
     nameTvProgram= ntv;
    }
-
-
-
-
-
-    virtual void showinfo()
-    {
-        Customer::showinfo();
-        cout << endl ;
-    }
 };
+#endif

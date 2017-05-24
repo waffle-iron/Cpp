@@ -1,20 +1,23 @@
-/*Function for Customer*/
 #include "Customer.h"
 #include "ShowOneLine.h"
 #include <iostream>
-#include <fstream>
 
 using namespace std;
+
 ShowOneLine line;
 Customer agreementwrt;
+
 void Customer::WriteOrderList(){
    int ord;
 
-    do
+
+        do
            {
-           cout << "\nSelect action:\n1.Add information about me.\n2.Make agreements.\n"
-                   "3.Do some adjustments.\n";
-           cin >> ord;
+        system ("clear");
+        cout << "\nSelect action:\n1.Add information about me.\n2.Make agreements.\n"
+                   "3.Do some adjustments.\n4.Exit\n";
+        cin >> ord;
+
        switch (ord) {
        case 1:
            system ("clear");
@@ -40,15 +43,18 @@ cout << "\nBy print \'y\', you agree to TvStudio User Agreement, Provacy Policy.
            cout << endl << "    \t";
            line.intLastLineOrdList();
 
-
            agreementwrt.Adjustments();
 
-           break;
+        break;
+
+       case 4:
+        break;
+
        default:
            cout <<"Incorrect selection,try again!";
            break;
        }
-      // system ("clear");
            }
-           while(ord != 1 && ord != 2 && ord != 3);
+           while(ord != 4);
+           system ("clear");
    }

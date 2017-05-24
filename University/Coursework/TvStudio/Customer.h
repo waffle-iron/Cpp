@@ -1,3 +1,6 @@
+#ifndef CUSTOMER_H
+#define CUSTOMER_H
+
 #include<iostream>
 #include <string>
 using namespace std;
@@ -57,13 +60,5 @@ public:
     {
         return surname;
     }
-
-
-
-    virtual void showinfo()
-    {
-        cout << endl << "Money: " << money << endl << "Name: " << name << endl
-             << "Surname: " << surname ;
-    }
-
 };
+#endif

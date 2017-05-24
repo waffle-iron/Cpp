@@ -1,11 +1,15 @@
 #include<iostream>
 #include <string>
+#include "Agreement.h"
+#include "Order.h"
 using namespace std;
 
 class Operator : public Agreement,public Order
 {
 public:
     int ID;
+    void PriceChange();
+    void ShowAllFile();
 
     Operator()
     {
@@ -23,26 +27,9 @@ public:
         return surname;
     }
 
-    string getTarget()
-    {
-        return target;
-    }
-
-    void setTarget(string tr)
-    {
-     target = tr;
-    }
 
     void setID(int idOrd)
     {
         ID = idOrd;
-    }
-
-
-
-    virtual void showinfo()
-    {
-        Agreement::showinfo();
-        cout << target << endl;
     }
 };
