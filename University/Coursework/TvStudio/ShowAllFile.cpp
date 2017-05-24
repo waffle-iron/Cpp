@@ -28,7 +28,12 @@ mFile.close();
 }
 
 
-void Operator::ShowAllFile(){
+void Operator::ShowAllFileCateg(){
     QString Category = "Category.txt";
+    ReadCateg(Category);
+}
+
+void Operator::ShowAllFileOrd(){
+    QString Category = "Orderlist.txt";
     ReadCateg(Category);
 }

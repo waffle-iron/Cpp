@@ -9,7 +9,8 @@ class Operator : public Agreement,public Order
 public:
     int ID;
     void PriceChange();
-    void ShowAllFile();
+    void ShowAllFileCateg();
+    void ShowAllFileOrd();
 
     Operator()
     {

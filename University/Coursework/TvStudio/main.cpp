@@ -35,18 +35,22 @@ case 2:
     int c;
     do{
 
-    cout <<"\nSelect action:\n1.Show category || pricelist.\n2.Change price\n3.Exit\n";
+    cout <<"\nSelect action:\n1.Show category || pricelist.\n2.Change price\n3.Show all orders\n4.Exit\n";
     cin >> c;
     if(c == 1){
     system ("clear");
-    change.ShowAllFile();
+    change.ShowAllFileCateg();
     }
     if(c == 2){
     change.PriceChange();
     system ("clear");
     }
+    if(c == 3){
+    system ("clear");
+    change.ShowAllFileOrd();
     }
-    while(c != 3);
+    }
+    while(c != 4);
     system ("clear");
     break;
 

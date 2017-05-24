@@ -77,6 +77,7 @@ void Customer::Agreements(){
          else cout << "Unable to open file";
 
          int newBalanse = a - requestmoney;
+
          ofstream Bank;
          Bank.open("Bank.txt");
          Bank << newBalanse;

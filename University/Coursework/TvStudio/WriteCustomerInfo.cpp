@@ -36,6 +36,12 @@ void Customer::WriteCustomerInfo()
               << "                    " << infoUsr.getMoney();
     OrderList.close();
 
+    ofstream OrderList1;
+    OrderList1.open("Orderlist1.txt", ios::app);
+    OrderList1 << endl << ID << "     " << infoUsr.getName() << "                " << infoUsr.getSurame()
+              << "                    " << infoUsr.getMoney();
+    OrderList1.close();
+
     ofstream Bank;
     Bank.open("Bank.txt");
     Bank << infoUsr.getSurame() << " " << infoUsr.getMoney();

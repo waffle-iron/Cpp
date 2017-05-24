@@ -1,0 +1,8 @@
+1.Animated TV shows.(1000$/h)
+2.Children's TV shows.(2000$/h)
+3.Comedy TV shows.(3000$/h)
+4.Horror TV shows.(4000$/h)
+5.Game shows.(5000$/h)
+6.Western TV shows.(6000$/h)
+7.News shows.(7000$/h)
+
