@@ -4,9 +4,10 @@ PASS   : Test::initTestCase()
 PASS   : Test::IsMoneyUser()
 PASS   : Test::StringUsrName()
 PASS   : Test::StringUsrSurname()
-FAIL!  : Test::NameTvPrograms() 'A.getSurame() == "Test"' returned FALSE. ()
-   Loc: [../TvStudio/Test.cpp(45)]
+FAIL!  : Test::NameTvPrograms() 'A.getNameTvProgram() == "Test"' returned FALSE. ()
+   Loc: [../TvStudio/Test.cpp(46)]
 PASS   : Test::ID()
+PASS   : Test::toUpper()
 PASS   : Test::cleanupTestCase()
-Totals: 6 passed, 1 failed, 0 skipped, 0 blacklisted, 1ms
+Totals: 7 passed, 1 failed, 0 skipped, 0 blacklisted, 1ms
 ********* Finished testing of Test *********

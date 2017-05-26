@@ -4,6 +4,7 @@
 #include "Customer.h"
 #include "Order.h"
 #include "Operator.h"
+#include <ctype.h>
 
 using namespace std;
 
@@ -41,8 +42,13 @@ void Test::StringUsrSurname()
 void Test::NameTvPrograms()
 {
     Customer A;
-    A.setNameTvProgram("Test");
-    QVERIFY(A.getSurame() == "Test");
+    A.setNameTvProgram("4sdds");
+    QVERIFY(A.getNameTvProgram() == "Test");
 }
 
+void Test::toUpper()
+{
+    QString str = "Hello";
+    QCOMPARE(str.toUpper(), QString("HELLO"));
+}
 

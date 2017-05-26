@@ -12,6 +12,7 @@ private slots:
     void StringUsrSurname();
     void NameTvPrograms();
     void ID();
+     void toUpper();
 };
 #endif // TEST_H
 
